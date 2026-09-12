@@ -25,6 +25,10 @@
     "name": { "en": "Tivadar Bánfalvi-Kovács", "hu": "Bánfalvi-Kovács Tivadar" },
     "title": { "en": "Computer Engineering Student", "hu": "Mérnökinformatikus hallgató" },
     "photo": null,
+    "photoCandidates": [
+      "assets/photos/30.jpg", "assets/photos/31.jpg", "assets/photos/32.jpg",
+      "assets/photos/248.jpg", "assets/photos/254.jpg", "assets/photos/323.jpg", "assets/photos/337.jpg"
+    ],
     "location": { "en": "Budapest, Hungary", "hu": "1221 Budapest" },
     "email": "t.banfalvi.kovacs@gmail.com",
     "phone": "+36 70 938 7844",

@@ -89,8 +89,9 @@
     const b = data.basics || {};
     const parts = [];
 
-    const avatar = b.photo
-      ? `<img class="avatar" src="${esc(b.photo)}" alt="${esc(t(b.name))}">`
+    const photo = pickedPhoto() || b.photo;
+    const avatar = photo
+      ? `<img class="avatar" src="${esc(photo)}" alt="${esc(t(b.name))}">`
       : `<div class="avatar avatar--initials" aria-hidden="true">${esc(initials(t(b.name)))}</div>`;
 
     parts.push(`
@@ -237,6 +238,57 @@
     document.getElementById("main").innerHTML = parts.join("");
   }
 
+  /* ----- photo picker (only while basics.photoCandidates exists) ---------- */
+
+  const PHOTO_KEY = "resume.photo";
+
+  // Returns the candidate chosen in this browser, if it is still listed.
+  function pickedPhoto() {
+    const list = data.basics?.photoCandidates;
+    if (!has(list)) return null;
+    try {
+      const v = localStorage.getItem(PHOTO_KEY);
+      return list.includes(v) ? v : null;
+    } catch (_) { return null; }
+  }
+
+  function renderPicker() {
+    const list = data.basics?.photoCandidates;
+    let el = document.getElementById("picker");
+    if (!has(list)) { el?.remove(); return; }
+    if (!el) {
+      el = document.createElement("aside");
+      el.id = "picker";
+      el.className = "picker";
+      document.body.appendChild(el);
+      el.addEventListener("click", (ev) => {
+        const btn = ev.target.closest("[data-photo]");
+        if (!btn) return;
+        try {
+          if (btn.dataset.photo) localStorage.setItem(PHOTO_KEY, btn.dataset.photo);
+          else localStorage.removeItem(PHOTO_KEY);
+        } catch (_) { /* ignore */ }
+        renderSide();
+        renderPicker();
+      });
+    }
+    const current = pickedPhoto();
+    const thumbs = list.map((src) => `
+      <button type="button" class="picker__thumb ${src === current ? "is-active" : ""}" data-photo="${esc(src)}" title="${esc(src)}">
+        <img src="${esc(src)}" alt="">
+        <span>${esc(src.split("/").pop().replace(/\.\w+$/, ""))}</span>
+      </button>`).join("");
+    el.innerHTML = `
+      <div class="picker__head">Photo picker</div>
+      <div class="picker__grid">
+        <button type="button" class="picker__thumb picker__thumb--none ${current ? "" : "is-active"}" data-photo="" title="No photo (initials)">
+          <span class="picker__none">${esc(initials(t(data.basics?.name)))}</span><span>none</span>
+        </button>
+        ${thumbs}
+      </div>
+      <code class="picker__path">"photo": ${current ? `"${esc(current)}"` : "null"}</code>`;
+  }
+
   /* ----- chrome (top bar, title, lang) ----------------------------------- */
 
   function renderChrome() {
@@ -265,6 +317,7 @@
     renderChrome();
     renderSide();
     renderMain();
+    renderPicker();
   }
 
   function setLang(next, { persist = true } = {}) {

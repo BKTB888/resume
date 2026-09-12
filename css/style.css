@@ -440,6 +440,71 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 }
 
 /* ==========================================================================
+   Photo picker (dev aid; shown only while resume.json lists photoCandidates)
+   ========================================================================== */
+.picker {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  width: min(360px, calc(100vw - 32px));
+  padding: 12px 14px 12px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: var(--side-text);
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,.6);
+}
+.picker__head {
+  font: 600 11px/1 var(--font-head);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--side-muted);
+  margin-bottom: 10px;
+}
+.picker__grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.picker__thumb {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--side-muted);
+  font: 500 10.5px/1 var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.picker__thumb img, .picker__none {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  transition: border-color .12s, transform .12s;
+}
+.picker__none {
+  display: grid;
+  place-items: center;
+  background: var(--navy-deep);
+  color: var(--accent);
+  font: 700 18px/1 var(--font-head);
+}
+.picker__thumb:hover img, .picker__thumb:hover .picker__none { transform: translateY(-2px); }
+.picker__thumb.is-active img, .picker__thumb.is-active .picker__none { border-color: var(--accent); }
+.picker__thumb.is-active { color: #fff; }
+.picker__path {
+  display: block;
+  margin-top: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.08);
+  font-size: 11.5px;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 720px) {
@@ -486,7 +551,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   }
   body { background: transparent; font-size: 10pt; line-height: 1.5; }
 
-  .topbar, .noscript { display: none !important; }
+  .topbar, .noscript, .picker { display: none !important; }
 
   .pg { display: table; border-collapse: collapse; width: 210mm; }
   .pg thead { display: table-header-group; }
