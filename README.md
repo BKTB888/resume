@@ -11,7 +11,7 @@ Plain static files — no build step for the page itself; only the PDFs are pre-
 | `index.html`, `css/style.css`, `js/app.js` | The page. Renders `resume.json` in the chosen language. |
 | `resume-en.pdf`, `resume-hu.pdf` | Pre-built PDFs linked from the "Download PDF" button. |
 | `build_pdf.py` | Rebuilds both PDFs (and screenshots) with headless Chromium. |
-| `assets/photos/` | Candidate photos. While `basics.photoCandidates` lists files, the page shows a **Photo picker** panel (bottom-right) to try them; the choice is saved per browser only. Set `basics.photo` to the winner and remove `photoCandidates` to finalise. Without a photo an initials avatar is shown. |
+| `assets/photos/` | Candidate photos. While `basics.photoCandidates` lists files, the page shows a **Photo picker** panel (bottom-right) to try them; the choice is saved per browser only. Drag the avatar to move it, scroll or use the Zoom slider to enlarge; the panel prints the `photo` + `photoFrame` lines to paste into `basics`. Remove `photoCandidates` to finalise. Without a photo an initials avatar is shown. |
 | `tools/crop_faces.py` | `uv run tools/crop_faces.py photo.jpg …` — detects faces and writes 800×800 head-and-shoulders crops into `assets/photos/`. |
 
 ## Editing content
