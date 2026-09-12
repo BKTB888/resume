@@ -502,7 +502,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 
   .side {
     background: transparent;        /* the root background provides the colour */
-    padding: 2mm 7mm 0 8mm;
+    padding: 2mm 6mm 0 6.5mm;
     gap: 6mm;
   }
   .main {
@@ -518,7 +518,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .identity__title { font-size: 10.5pt; }
   .side__section { gap: 2.5mm; }
   .side__heading { font-size: 8pt; padding-bottom: 2mm; }
-  .contact { font-size: 9.5pt; gap: 1.5mm; }
+  .contact { font-size: 9pt; gap: 1.5mm; }
   .contact svg { width: 11px; height: 11px; margin-top: 2px; }
   .skillgroup + .skillgroup { margin-top: 2.2mm; }
   .skillgroup__name { font-size: 8.5pt; margin-bottom: 1.2mm; }

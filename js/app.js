@@ -70,9 +70,13 @@
   const chips = (items, cls = "chip") =>
     has(items) ? items.map((s) => `<span class="${cls}">${esc(t(s))}</span>`).join("") : "";
 
-  const stackRow = (items) => has(items)
-    ? `<div class="stack"><span class="stack__label">${esc(ui("stack"))}</span>${chips(items)}</div>`
+  const stackRow = (items, labelKey = "stack") => has(items)
+    ? `<div class="stack"><span class="stack__label">${esc(ui(labelKey))}</span>${chips(items)}</div>`
     : "";
+
+  // Date pill only when the entry actually has dates
+  const datePill = (cls, start, end) => (start || end)
+    ? `<span class="${cls}">${esc(fmtRange(start, end))}</span>` : "";
 
   /* ----- sidebar ---------------------------------------------------------- */
 
@@ -81,14 +85,14 @@
     const parts = [];
 
     const avatar = b.photo
-      ? `<img class="avatar" src="${esc(b.photo)}" alt="${esc(b.name)}">`
-      : `<div class="avatar avatar--initials" aria-hidden="true">${esc(initials(b.name))}</div>`;
+      ? `<img class="avatar" src="${esc(b.photo)}" alt="${esc(t(b.name))}">`
+      : `<div class="avatar avatar--initials" aria-hidden="true">${esc(initials(t(b.name)))}</div>`;
 
     parts.push(`
       <div class="identity">
         ${avatar}
         <div>
-          <h1 class="identity__name">${esc(b.name)}</h1>
+          <h1 class="identity__name">${esc(t(b.name))}</h1>
           <p class="identity__title">${esc(t(b.title))}</p>
         </div>
       </div>`);
@@ -159,8 +163,8 @@
     if (has(data.experience)) {
       const entries = data.experience.map((e) => {
         const org = e.url
-          ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.company)}</a>`
-          : `<span>${esc(e.company)}</span>`;
+          ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(t(e.company))}</a>`
+          : `<span>${esc(t(e.company))}</span>`;
         const loc = e.location ? `<span class="sep">·</span>${esc(t(e.location))}` : "";
         const bullets = t(e.bullets);
         return `
@@ -170,10 +174,11 @@
                 <h3 class="entry__role">${esc(t(e.role))}</h3>
                 <div class="entry__org">${org}${loc}</div>
               </div>
-              <span class="entry__date">${esc(fmtRange(e.start, e.end))}</span>
+              ${datePill("entry__date", e.start, e.end)}
             </div>
             ${has(bullets) ? `<ul class="bullets">${bullets.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
             ${stackRow(e.stack)}
+            ${stackRow(e.skills, "entrySkills")}
           </article>`;
       }).join("");
       parts.push(section("experience", `<div class="timeline">${entries}</div>`));
@@ -182,7 +187,7 @@
     if (has(data.projects)) {
       const cards = data.projects.map((p) => {
         const name = p.url
-          ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}${ICONS.link}</a>`
+          ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(t(p.name))}${ICONS.link}</a>`
           : esc(p.name);
         return `
           <article class="project">
@@ -198,7 +203,7 @@
       const rows = data.education.map((e) => `
         <div class="row">
           <div class="row__title">${esc(t(e.degree))}</div>
-          <div class="row__date">${esc(fmtRange(e.start, e.end))}</div>
+          ${datePill("row__date", e.start, e.end)}
           <div class="row__sub">${esc(t(e.school))}</div>
           ${e.note ? `<div class="row__note">${esc(t(e.note))}</div>` : ""}
         </div>`).join("");
@@ -227,7 +232,7 @@
 
   function renderChrome() {
     document.documentElement.lang = lang;
-    document.title = `${data.basics?.name || "Resume"} — ${t(data.basics?.title)}`;
+    document.title = `${t(data.basics?.name) || "Resume"} — ${t(data.basics?.title)}`;
 
     document.querySelectorAll("[data-ui]").forEach((el) => {
       el.textContent = ui(el.dataset.ui);
