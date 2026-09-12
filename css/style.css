@@ -468,7 +468,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 @media print {
   :root {
     --side-w: 66mm;
-    --page-margin: 12mm;
+    --page-margin: 9mm;
     --page-bg: #fff;
   }
 
@@ -507,7 +507,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   }
   .main {
     background: transparent;
-    padding: 2mm 12mm 0 11mm;
+    padding: 1mm 9mm 0 9mm;
     gap: 7mm;
   }
 
@@ -527,28 +527,30 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .langs { font-size: 9.5pt; gap: 1.5mm; }
 
   /* Main column: compact enough for a typical CV to fit one A4 page */
-  .main { gap: 5mm; }
-  .section { gap: 3.2mm; }
-  .section__heading { font-size: 12.5pt; padding-bottom: 2mm; break-after: avoid; }
-  .summary { font-size: 9.6pt; line-height: 1.5; max-width: none; }
-  .timeline { gap: 4mm; }
+  .main { gap: 4mm; }
+  .section { gap: 2.6mm; }
+  .section__heading { font-size: 11.5pt; padding-bottom: 1.6mm; break-after: avoid; }
+  .summary { font-size: 9pt; line-height: 1.42; max-width: none; }
+  .timeline { gap: 3mm; }
   .entry { padding-left: 6.5mm; break-inside: avoid; }
   .entry::before { width: 3mm; height: 3mm; top: 1.4mm; box-shadow: 0 0 0 2px #fff; }
-  .entry__role { font-size: 10.8pt; }
+  .entry__role { font-size: 10.4pt; }
   .entry__org { font-size: 9pt; margin-top: 0; }
   .entry__date { font-size: 8pt; padding: 0.4mm 2.2mm; }
-  .bullets { margin-top: 1.6mm; gap: 0.8mm; }
-  .bullets li { font-size: 9.2pt; line-height: 1.4; }
+  .bullets { margin-top: 1.2mm; gap: 0.5mm; }
+  .bullets li { font-size: 8.7pt; line-height: 1.32; }
   .bullets li::before { top: 2mm; }
-  .stack { margin-top: 1.6mm; gap: 1.2mm; }
+  .stack { margin-top: 1.2mm; gap: 1.2mm; }
+  /* Stack + Skills share one line inside experience entries */
+  .entry .stack { display: inline-flex; vertical-align: top; margin-right: 4mm; }
   .chip { font-size: 8pt; padding: 0.4mm 1.8mm; }
   .stack__label { font-size: 7pt; }
 
   /* Projects: one compact row each instead of the 2-column card grid */
-  .projects { display: flex; flex-direction: column; gap: 1.6mm; }
+  .projects { display: flex; flex-direction: column; gap: 1.2mm; }
   .project {
     display: grid;
-    grid-template-columns: 38mm minmax(0, 1fr) auto;
+    grid-template-columns: 46mm minmax(0, 1fr) auto;
     align-items: baseline;
     gap: 0 3mm;
     padding: 0;
@@ -557,9 +559,9 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
     background: transparent;
     break-inside: avoid;
   }
-  .project__name { font-size: 9.6pt; }
+  .project__name { font-size: 9.2pt; }
   .project__name svg { width: 10px; height: 10px; }
-  .project__desc { font-size: 8.8pt; }
+  .project__desc { font-size: 8.6pt; }
   .project .stack { margin-top: 0; }
   .project .stack__label { display: none; }
 

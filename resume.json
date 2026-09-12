@@ -41,7 +41,7 @@
   "skills": [
     {
       "group": { "en": "Programming languages", "hu": "Programnyelvek" },
-      "items": ["C", "C++", "Java", "Python", "Rust", "Kotlin", "C#"]
+      "items": ["Rust", "TypeScript", "C", "C++", "Java", "Python", "Kotlin", "C#"]
     },
     {
       "group": { "en": "Python libraries", "hu": "Python könyvtárak" },
@@ -63,6 +63,34 @@
   ],
 
   "experience": [
+    {
+      "company": "dlabs",
+      "url": null,
+      "location": null,
+      "role": { "en": "Software Developer Intern", "hu": "Szoftverfejlesztő gyakornok" },
+      "start": null,
+      "end": null,
+      "bullets": {
+        "en": [
+          "Contributed to the Mosaic Chain blockchain with smaller development tasks over roughly a year.",
+          "Main project: made an existing indexer Polkadot chain-agnostic — it follows live updates from multiple chains while also walking backwards to backfill historical data.",
+          "Refactored the codebase around proper interfaces so it could be tested easily, and extended the database schema to support multiple chains.",
+          "Updated the UI for the multi-chain data and learned where AI tooling genuinely helps in day-to-day development."
+        ],
+        "hu": [
+          "A Mosaic Chain blokklánc fejlesztésében vettem részt kisebb feladatokkal, nagyjából egy éven át.",
+          "Fő projektem: egy meglévő indexert Polkadot-lánc-függetlenné alakítottam át — több lánc élő frissítéseit követi, és visszafelé haladva a korábbi adatokat is feldolgozza.",
+          "Refaktoráltam a kódot megfelelő interfészekkel, hogy könnyen tesztelhető legyen; az adatbázissémát több lánc támogatására bővítettem.",
+          "A felületet is módosítottam a többláncos adatokhoz, és megtanultam, hol érdemes AI-eszközöket használni a mindennapi fejlesztésben."
+        ]
+      },
+      "stack": ["Rust", "TypeScript", "Polkadot"],
+      "skills": [
+        { "en": "Refactoring", "hu": "Refaktorálás" },
+        { "en": "Testing", "hu": "Tesztelés" },
+        { "en": "Full-stack development", "hu": "Full-stack fejlesztés" }
+      ]
+    },
     {
       "company": "BME",
       "url": "https://www.bme.hu/",
@@ -121,14 +149,10 @@
       "end": null,
       "bullets": {
         "en": [
-          "Waiter",
-          "Server on a boat",
-          "Stage builder"
+          "Waiter, server on a boat, stage builder."
         ],
         "hu": [
-          "Pincér",
-          "Hajón felszolgáló",
-          "Színpadépítő"
+          "Pincér, hajón felszolgáló, színpadépítő."
         ]
       },
       "stack": [],
@@ -182,7 +206,7 @@
       "url": "https://colab.research.google.com/drive/1nlyGHUVxSv23_C1Nc-zb1LoYxlsrkrMb?usp=sharing",
       "description": {
         "en": "Probability analysis of the Risk board game's battles in a Python notebook.",
-        "hu": "A Rizikó társasjáték csatáinak valószínűségi elemzése Python notebookban."
+        "hu": "A Rizikó csatáinak valószínűségi elemzése Python notebookban."
       },
       "stack": ["Python"]
     }
