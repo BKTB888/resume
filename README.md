@@ -11,8 +11,8 @@ Plain static files — no build step for the page itself; only the PDFs are pre-
 | `index.html`, `css/style.css`, `js/app.js` | The page. Renders `resume.json` in the chosen language. |
 | `resume-en.pdf`, `resume-hu.pdf` | Pre-built PDFs linked from the "Download PDF" button. |
 | `build_pdf.py` | Rebuilds both PDFs (and screenshots) with headless Chromium. |
-| `assets/photo.jpg` | The photo (square). Optional `basics.photoFrame` `{scale, x, y}` pans/zooms it inside the circle; the `photo-picker` branch has an interactive tool to choose a photo and framing. |
-| `tools/` | `crop_faces.py` (face crops from photos) and `bake_photo.py` (bake a picker framing into `assets/photo.jpg`). |
+| `assets/photo.webp` | The photo (square). Optional `basics.photoFrame` `{scale, x, y}` pans/zooms it inside the circle; the `photo-picker` branch has an interactive tool to choose a photo and framing. |
+| `tools/` | `crop_faces.py` (face crops from photos) and `bake_photo.py` (bake a picker framing into `assets/photo.webp`). |
 
 ## Editing content
 

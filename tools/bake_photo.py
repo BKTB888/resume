@@ -5,19 +5,20 @@
 """Bake a photo picker framing into a square image.
 
 Usage:
-    uv run tools/bake_photo.py <source.jpg> <scale> <x> <y> [out.jpg] [size]
+    uv run tools/bake_photo.py <source.jpg> <scale> <x> <y> [out] [size]
 
 <scale> <x> <y> are the values from the picker's "photoFrame" line. The
 source may be the original full-resolution photo (better quality) or the
 same file the picker used; the framing is relative, so both give the same
-crop. Writes assets/photo.jpg (1000x1000) by default.
+crop. Writes assets/photo.webp (1000x1000) by default. A .webp or .png
+output is masked to the circle (transparent corners); .jpg stays square.
 """
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageDraw, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 def main() -> None:
     src = Path(sys.argv[1]).expanduser()
     scale, x, y = (float(v) for v in sys.argv[2:5])
-    out = Path(sys.argv[5]) if len(sys.argv) > 5 else ROOT / "assets" / "photo.jpg"
+    out = Path(sys.argv[5]) if len(sys.argv) > 5 else ROOT / "assets" / "photo.webp"
     size = int(sys.argv[6]) if len(sys.argv) > 6 else 1000
 
     img = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
@@ -55,7 +56,18 @@ def main() -> None:
         box = tuple(v - m for v, m in zip(box, (min(0, box[0]), min(0, box[1])) * 2))
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    img.crop(box).resize((size, size), Image.LANCZOS).save(out, "JPEG", quality=88, optimize=True)
+    square = img.crop(box).resize((size, size), Image.LANCZOS)
+    if out.suffix.lower() in (".png", ".webp"):
+        # supersampled circular alpha mask for a smooth edge
+        mask = Image.new("L", (size * 4, size * 4), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, size * 4 - 1, size * 4 - 1), fill=255)
+        square.putalpha(mask.resize((size, size), Image.LANCZOS))
+        if out.suffix.lower() == ".png":
+            square.save(out, "PNG", optimize=True)
+        else:
+            square.save(out, "WEBP", quality=86, method=6)
+    else:
+        square.save(out, "JPEG", quality=88, optimize=True)
     print(f"wrote {out} from {src.name} crop {box} ({round(px)}px source)")
 
 
