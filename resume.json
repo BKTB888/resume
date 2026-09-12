@@ -31,7 +31,7 @@
     "website": null,
     "links": [
       { "label": "GitHub", "url": "https://github.com/BKTB888" },
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/tivadar-b%C3%A1nfalvi-kov%C3%A1cs-4009b7381/",
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/tivadar-bánfalvi-kovács-4009b7381",
         "text": { "en": "LinkedIn profile", "hu": "LinkedIn-profil" } }
     ],
     "summary": {
@@ -66,7 +66,7 @@
 
   "experience": [
     {
-      "company": "dlabs",
+      "company": "Dlabs",
       "url": null,
       "location": null,
       "role": { "en": "Software Developer Intern", "hu": "Szoftverfejlesztő gyakornok" },
@@ -86,7 +86,7 @@
           "A felületet is módosítottam a többláncos adatokhoz, és megtanultam, hol érdemes AI-eszközöket használni a mindennapi fejlesztésben."
         ]
       },
-      "stack": ["Rust", "TypeScript", "Polkadot"],
+      "stack": ["Rust", "TypeScript", "Polkadot", "Blockchain"],
       "skills": [
         { "en": "Refactoring", "hu": "Refaktorálás" },
         { "en": "Testing", "hu": "Tesztelés" },
