@@ -58,8 +58,8 @@
 
   "languages": [
     { "name": { "en": "Hungarian", "hu": "Magyar" }, "level": { "en": "Native", "hu": "Anyanyelv" } },
-    { "name": { "en": "English",   "hu": "Angol" },  "level": null },
-    { "name": { "en": "German",    "hu": "Német" },  "level": null }
+    { "name": { "en": "English",   "hu": "Angol" },  "level": "C1" },
+    { "name": { "en": "German",    "hu": "Német" },  "level": "B1" }
   ],
 
   "experience": [
