@@ -49,7 +49,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 p  { margin: 0; }
 h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 
-.print-band { display: none; }
+/* Print-only page wrapper (see index.html) — inert on screen */
+.pg, .pg tbody, .pg tr, .pg td { display: block; padding: 0; border: 0; }
+.pg thead, .pg tfoot { display: none; }
 
 /* ==========================================================================
    Top bar (language switch + PDF)
@@ -456,40 +458,38 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 
 /* ==========================================================================
    Print — A4, sidebar band continues on every page
+   --------------------------------------------------------------------------
+   Page margins are 0 so the navy band (painted as the root background, which
+   Chromium repeats on every page) can bleed to the edges. The per-page
+   top/bottom margins come from the repeating <thead>/<tfoot> spacers instead.
    ========================================================================== */
 @page { size: A4; margin: 0; }
 
 @media print {
   :root {
     --side-w: 66mm;
+    --page-margin: 12mm;
     --page-bg: #fff;
   }
 
-  html, body {
-    background: #fff;
+  html {
+    background: linear-gradient(90deg, var(--navy) 0 var(--side-w), #fff var(--side-w));
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-
-  body { font-size: 10pt; line-height: 1.5; }
+  body { background: transparent; font-size: 10pt; line-height: 1.5; }
 
   .topbar, .noscript { display: none !important; }
 
-  /* Fixed elements repeat on each printed page in Chromium */
-  .print-band {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--side-w);
-    height: 100vh;
-    background: var(--navy);
-    z-index: 0;
-  }
+  .pg { display: table; border-collapse: collapse; width: 210mm; }
+  .pg thead { display: table-header-group; }
+  .pg tfoot { display: table-footer-group; }
+  .pg tbody { display: table-row-group; }
+  .pg tr    { display: table-row; }
+  .pg td    { display: table-cell; padding: 0; vertical-align: top; }
+  .pg__spacer { height: var(--page-margin); }
 
   .sheet {
-    position: relative;
-    z-index: 1;
     max-width: none;
     width: 210mm;
     margin: 0;
@@ -501,26 +501,30 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   }
 
   .side {
-    background: transparent;        /* the band provides the colour */
-    padding: 14mm 8mm 12mm;
-    gap: 8mm;
+    background: transparent;        /* the root background provides the colour */
+    padding: 2mm 7mm 0 8mm;
+    gap: 6mm;
   }
   .main {
-    background: #fff;
-    padding: 14mm 12mm 12mm 11mm;
-    gap: 8mm;
+    background: transparent;
+    padding: 2mm 12mm 0 11mm;
+    gap: 7mm;
   }
 
-  .avatar { width: 34mm; height: 34mm; border-width: 3px; box-shadow: none; }
-  .avatar--initials { font-size: 28pt; }
-  .identity { gap: 5mm; }
+  .avatar { width: 30mm; height: 30mm; border-width: 3px; box-shadow: none; }
+  .avatar--initials { font-size: 24pt; }
+  .identity { gap: 4mm; }
   .identity__name { font-size: 20pt; }
   .identity__title { font-size: 10.5pt; }
-  .side__heading { font-size: 8pt; padding-bottom: 2.2mm; }
-  .contact { font-size: 9.5pt; gap: 1.8mm; }
+  .side__section { gap: 2.5mm; }
+  .side__heading { font-size: 8pt; padding-bottom: 2mm; }
+  .contact { font-size: 9.5pt; gap: 1.5mm; }
   .contact svg { width: 11px; height: 11px; margin-top: 2px; }
-  .tag { font-size: 8.5pt; padding: 1.4mm 2.4mm; background: rgba(255,255,255,0.12); }
-  .langs { font-size: 9.5pt; }
+  .skillgroup + .skillgroup { margin-top: 2.2mm; }
+  .skillgroup__name { font-size: 8.5pt; margin-bottom: 1.2mm; }
+  .tags { gap: 1.2mm; }
+  .tag { font-size: 8.5pt; padding: 1.2mm 2.2mm; background: rgba(255,255,255,0.12); }
+  .langs { font-size: 9.5pt; gap: 1.5mm; }
 
   .section { gap: 4.5mm; }
   .section__heading { font-size: 13.5pt; padding-bottom: 2.5mm; break-after: avoid; }

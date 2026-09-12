@@ -36,13 +36,22 @@
     </div>
   </header>
 
-  <!-- Continuous sidebar band for multi-page print output -->
-  <div class="print-band" aria-hidden="true"></div>
-
-  <main class="sheet" id="sheet">
-    <aside class="side" id="side"></aside>
-    <section class="main" id="main"></section>
-  </main>
+  <!--
+    The table is a print-only device: Chromium repeats <thead>/<tfoot> on every
+    printed page, which gives each page a top/bottom margin while the sidebar
+    band (painted as the root background) still runs edge to edge.
+    On screen the table elements are plain blocks and the spacers are hidden.
+  -->
+  <table class="pg" role="presentation">
+    <thead><tr><td class="pg__spacer"></td></tr></thead>
+    <tbody><tr><td class="pg__body">
+      <main class="sheet" id="sheet">
+        <aside class="side" id="side"></aside>
+        <section class="main" id="main"></section>
+      </main>
+    </td></tr></tbody>
+    <tfoot><tr><td class="pg__spacer"></td></tr></tfoot>
+  </table>
 
   <noscript>
     <p class="noscript">This page needs JavaScript to render. The PDF versions are available directly:
