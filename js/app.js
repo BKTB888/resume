@@ -91,7 +91,7 @@
 
     const photo = pickedPhoto() || b.photo;
     const avatar = photo
-      ? `<div class="avatar avatar--photo"><img src="${esc(photo)}" alt="${esc(t(b.name))}" style="transform:${frameCss(frameFor(photo))}"></div>`
+      ? `<div class="avatar avatar--photo"><div class="avatar__frame" style="transform:${frameCss(frameFor(photo))}"><img src="${esc(photo)}" alt="${esc(t(b.name))}" onload="this.classList.add(this.naturalWidth >= this.naturalHeight ? 'is-landscape' : 'is-portrait')"></div></div>`
       : `<div class="avatar avatar--initials" aria-hidden="true">${esc(initials(t(b.name)))}</div>`;
 
     parts.push(`
@@ -243,7 +243,7 @@
   const PHOTO_KEY = "resume.photo";
   const FRAME_KEY = "resume.photoFrame:";
   const FRAME_DEFAULT = { scale: 1, x: 0, y: 0 };
-  const SCALE_MIN = 1, SCALE_MAX = 3;
+  const SCALE_MIN = 1, SCALE_MAX = 10;
 
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
   const round1 = (v) => Math.round(v * 10) / 10;
@@ -285,8 +285,8 @@
 
   // Apply a frame to the live avatar without re-rendering the whole sidebar.
   function applyFrame(f) {
-    const img = document.querySelector(".avatar--photo img");
-    if (img) img.style.transform = frameCss(f);
+    const fr = document.querySelector(".avatar__frame");
+    if (fr) fr.style.transform = frameCss(f);
     const slider = document.getElementById("pickerZoom");
     if (slider) slider.value = f.scale;
     const out = document.getElementById("pickerZoomVal");
@@ -317,8 +317,8 @@
     });
     el.addEventListener("pointermove", (ev) => {
       if (!start) return;
-      // translate % is relative to the img's layout width (inside the border)
-      const d = el.querySelector("img").offsetWidth;
+      // translate % is relative to the frame's width (the circle inside the border)
+      const d = el.querySelector(".avatar__frame").offsetWidth;
       live = normFrame({
         scale: start.f.scale,
         x: start.f.x + ((ev.clientX - start.px) / d) * 100,
@@ -387,7 +387,7 @@
     const thumbs = list.map((src) => `
       <button type="button" class="picker__thumb ${src === current ? "is-active" : ""}" data-photo="${esc(src)}" title="${esc(src)}">
         <img src="${esc(src)}" alt="">
-        <span>${esc(src.split("/").pop().replace(/\.\w+$/, ""))}</span>
+        <span>${esc(src.replace(/^assets\/photos\//, "").replace(/\.\w+$/, ""))}</span>
       </button>`).join("");
     const adjust = current ? `
       <div class="picker__zoom">

@@ -26,6 +26,8 @@
     "title": { "en": "Computer Engineering Student", "hu": "Mérnökinformatikus hallgató" },
     "photo": null,
     "photoCandidates": [
+      "assets/photos/full/30.jpg", "assets/photos/full/31.jpg", "assets/photos/full/32.jpg",
+      "assets/photos/full/248.jpg", "assets/photos/full/254.jpg", "assets/photos/full/323.jpg", "assets/photos/full/337.jpg",
       "assets/photos/30.jpg", "assets/photos/31.jpg", "assets/photos/32.jpg",
       "assets/photos/248.jpg", "assets/photos/254.jpg", "assets/photos/323.jpg", "assets/photos/337.jpg"
     ],
