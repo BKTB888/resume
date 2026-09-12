@@ -54,4 +54,4 @@ The PDFs use the same `@media print` stylesheet as the browser's Print / "Save a
 3. The page is live at `https://<username>.github.io/<repo>/` within a minute.
    Send that link to recruiters; the PDF buttons work directly from there.
 
-Language is chosen in this order: `?lang=` in the URL → last choice saved in the browser → browser language (`hu` → Hungarian, otherwise English).
+Language is chosen in this order: `?lang=` in the URL → last choice saved in the browser → Hungarian by default.

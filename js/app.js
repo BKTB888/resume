@@ -2,7 +2,8 @@
 (() => {
   "use strict";
 
-  const LANGS = ["en", "hu"];
+  const LANGS = ["hu", "en"];
+  const DEFAULT_LANG = "hu";   // shown unless ?lang= or a saved choice says otherwise
   const STORAGE_KEY = "resume.lang";
 
   const MONTHS = {
@@ -277,7 +278,7 @@
       const stored = localStorage.getItem(STORAGE_KEY);
       if (LANGS.includes(stored)) return stored;
     } catch (_) { /* ignore */ }
-    return (navigator.language || "").toLowerCase().startsWith("hu") ? "hu" : "en";
+    return DEFAULT_LANG;
   }
 
   /* ----- boot ------------------------------------------------------------- */
