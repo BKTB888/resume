@@ -526,30 +526,48 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .tag { font-size: 8.5pt; padding: 1.2mm 2.2mm; background: rgba(255,255,255,0.12); }
   .langs { font-size: 9.5pt; gap: 1.5mm; }
 
-  .section { gap: 4.5mm; }
-  .section__heading { font-size: 13.5pt; padding-bottom: 2.5mm; break-after: avoid; }
-  .summary { font-size: 10.5pt; line-height: 1.55; max-width: none; }
-  .timeline { gap: 6mm; }
-  .entry { padding-left: 7mm; break-inside: avoid; }
-  .entry::before { width: 3mm; height: 3mm; top: 1.6mm; box-shadow: 0 0 0 2px #fff; }
-  .entry__role { font-size: 11.5pt; }
-  .entry__org { font-size: 9.5pt; }
-  .entry__date { font-size: 8.5pt; padding: 0.5mm 2.5mm; }
-  .bullets li { font-size: 9.8pt; }
-  .bullets li::before { top: 2.2mm; }
-  .chip { font-size: 8.5pt; padding: 0.6mm 2mm; }
-  .stack__label { font-size: 7.5pt; }
+  /* Main column: compact enough for a typical CV to fit one A4 page */
+  .main { gap: 5mm; }
+  .section { gap: 3.2mm; }
+  .section__heading { font-size: 12.5pt; padding-bottom: 2mm; break-after: avoid; }
+  .summary { font-size: 9.6pt; line-height: 1.5; max-width: none; }
+  .timeline { gap: 4mm; }
+  .entry { padding-left: 6.5mm; break-inside: avoid; }
+  .entry::before { width: 3mm; height: 3mm; top: 1.4mm; box-shadow: 0 0 0 2px #fff; }
+  .entry__role { font-size: 10.8pt; }
+  .entry__org { font-size: 9pt; margin-top: 0; }
+  .entry__date { font-size: 8pt; padding: 0.4mm 2.2mm; }
+  .bullets { margin-top: 1.6mm; gap: 0.8mm; }
+  .bullets li { font-size: 9.2pt; line-height: 1.4; }
+  .bullets li::before { top: 2mm; }
+  .stack { margin-top: 1.6mm; gap: 1.2mm; }
+  .chip { font-size: 8pt; padding: 0.4mm 1.8mm; }
+  .stack__label { font-size: 7pt; }
 
-  .projects { grid-template-columns: 1fr 1fr; gap: 4mm; }
-  .project { break-inside: avoid; padding: 4mm; border-radius: 2mm; }
-  .project__name { font-size: 10.5pt; }
-  .project__desc { font-size: 9.3pt; }
+  /* Projects: one compact row each instead of the 2-column card grid */
+  .projects { display: flex; flex-direction: column; gap: 1.6mm; }
+  .project {
+    display: grid;
+    grid-template-columns: 38mm minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0 3mm;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    break-inside: avoid;
+  }
+  .project__name { font-size: 9.6pt; }
+  .project__name svg { width: 10px; height: 10px; }
+  .project__desc { font-size: 8.8pt; }
+  .project .stack { margin-top: 0; }
+  .project .stack__label { display: none; }
 
-  .rows { gap: 3.5mm; }
+  .rows { gap: 2.5mm; }
   .row { break-inside: avoid; }
-  .row__title { font-size: 10.5pt; }
-  .row__sub, .row__note { font-size: 9.3pt; }
-  .row__date { font-size: 8.5pt; }
+  .row__title { font-size: 10pt; }
+  .row__sub, .row__note { font-size: 8.8pt; }
+  .row__date { font-size: 8pt; }
 
   a[href]::after { content: none; }
 }
