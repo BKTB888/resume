@@ -1,81 +1,186 @@
 {
   "meta": {
-    "pdf": { "en": "resume-en.pdf", "hu": "resume-hu.pdf" }
+    "pdf": {
+      "en": "resume-en.pdf",
+      "hu": "resume-hu.pdf"
+    }
   },
-
   "ui": {
-    "download":     { "en": "Download PDF",        "hu": "PDF letöltése" },
-    "print":        { "en": "Print",               "hu": "Nyomtatás" },
-    "present":      { "en": "Present",             "hu": "jelenleg" },
-    "contact":      { "en": "Contact",             "hu": "Elérhetőség" },
-    "skills":       { "en": "Technical skills",    "hu": "Technikai ismeretek" },
-    "languages":    { "en": "Languages",           "hu": "Nyelvismeret" },
-    "summary":      { "en": "About me",            "hu": "Bemutatkozás" },
-    "experience":   { "en": "Experience",          "hu": "Tapasztalat" },
-    "projects":     { "en": "Projects",            "hu": "Projektek" },
-    "education":    { "en": "Education",           "hu": "Tanulmányok" },
-    "certificates": { "en": "Certificates",        "hu": "Tanúsítványok" },
-    "interests":    { "en": "Interests",           "hu": "Érdeklődés" },
-    "stack":        { "en": "Stack",               "hu": "Technológiák" },
-    "entrySkills":  { "en": "Skills",              "hu": "Készségek" },
-    "langSwitch":   { "en": "Switch language",     "hu": "Nyelvváltás" }
+    "download": {
+      "en": "Download PDF",
+      "hu": "PDF letöltése"
+    },
+    "print": {
+      "en": "Print",
+      "hu": "Nyomtatás"
+    },
+    "present": {
+      "en": "Present",
+      "hu": "jelenleg"
+    },
+    "contact": {
+      "en": "Contact",
+      "hu": "Elérhetőség"
+    },
+    "skills": {
+      "en": "Technical skills",
+      "hu": "Technikai ismeretek"
+    },
+    "languages": {
+      "en": "Languages",
+      "hu": "Nyelvismeret"
+    },
+    "summary": {
+      "en": "About me",
+      "hu": "Bemutatkozás"
+    },
+    "experience": {
+      "en": "Experience",
+      "hu": "Tapasztalat"
+    },
+    "projects": {
+      "en": "Projects",
+      "hu": "Projektek"
+    },
+    "education": {
+      "en": "Education",
+      "hu": "Tanulmányok"
+    },
+    "certificates": {
+      "en": "Certificates",
+      "hu": "Tanúsítványok"
+    },
+    "interests": {
+      "en": "Interests",
+      "hu": "Érdeklődés"
+    },
+    "stack": {
+      "en": "Stack",
+      "hu": "Technológiák"
+    },
+    "entrySkills": {
+      "en": "Skills",
+      "hu": "Készségek"
+    },
+    "langSwitch": {
+      "en": "Switch language",
+      "hu": "Nyelvváltás"
+    }
   },
-
   "basics": {
-    "name": { "en": "Tivadar Bánfalvi-Kovács", "hu": "Bánfalvi-Kovács Tivadar" },
-    "title": { "en": "Computer Engineering Student", "hu": "Mérnökinformatikus hallgató" },
-    "photo": null,
-    "photoCandidates": [
-      "assets/photos/full/30.jpg", "assets/photos/full/31.jpg", "assets/photos/full/32.jpg",
-      "assets/photos/full/248.jpg", "assets/photos/full/254.jpg", "assets/photos/full/323.jpg", "assets/photos/full/337.jpg",
-      "assets/photos/30.jpg", "assets/photos/31.jpg", "assets/photos/32.jpg",
-      "assets/photos/248.jpg", "assets/photos/254.jpg", "assets/photos/323.jpg", "assets/photos/337.jpg"
-    ],
-    "location": { "en": "Budapest, Hungary", "hu": "1221 Budapest" },
+    "name": {
+      "en": "Tivadar Bánfalvi-Kovács",
+      "hu": "Bánfalvi-Kovács Tivadar"
+    },
+    "title": {
+      "en": "Computer Engineering Student",
+      "hu": "Mérnökinformatikus hallgató"
+    },
+    "photo": "assets/photo.jpg",
+    "location": {
+      "en": "Budapest, Hungary",
+      "hu": "1221 Budapest"
+    },
     "email": "t.banfalvi.kovacs@gmail.com",
     "phone": "+36 70 938 7844",
     "website": null,
     "links": [
-      { "label": "GitHub", "url": "https://github.com/BKTB888" },
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/tivadar-bánfalvi-kovács-4009b7381",
-        "text": { "en": "LinkedIn profile", "hu": "LinkedIn-profil" } }
+      {
+        "label": "GitHub",
+        "url": "https://github.com/BKTB888"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/tivadar-bánfalvi-kovács-4009b7381",
+        "text": {
+          "en": "LinkedIn profile",
+          "hu": "LinkedIn-profil"
+        }
+      }
     ],
     "summary": {
       "en": "I have always looked for new opportunities and challenges, and I am used to holding my own in competitive situations. I usually find common ground with people easily. I enjoy sports, board games and programming.",
       "hu": "Mindig is kerestem az új lehetőségeket, kihívásokat, és a versenyhelyzetekben is megszoktam állni a helyem. Az emberekkel általában könnyen megtalálom a közös hangot. Szeretek sportolni, társasozni és programozni."
     }
   },
-
   "skills": [
     {
-      "group": { "en": "Programming languages", "hu": "Programnyelvek" },
-      "items": ["Rust", "TypeScript", "C", "C++", "Java", "Python", "Kotlin", "C#"]
-    },
-    {
-      "group": { "en": "Python libraries", "hu": "Python könyvtárak" },
-      "items": ["NumPy", "Pandas", "PyTorch"]
-    },
-    {
-      "group": { "en": "Other", "hu": "Egyéb" },
+      "group": {
+        "en": "Programming languages",
+        "hu": "Programnyelvek"
+      },
       "items": [
-        "Git", "GitHub",
-        { "en": "Strong mathematics", "hu": "Erős matematikai tudás" }
+        "Rust",
+        "TypeScript",
+        "C",
+        "C++",
+        "Java",
+        "Python",
+        "Kotlin",
+        "C#"
+      ]
+    },
+    {
+      "group": {
+        "en": "Python libraries",
+        "hu": "Python könyvtárak"
+      },
+      "items": [
+        "NumPy",
+        "Pandas",
+        "PyTorch"
+      ]
+    },
+    {
+      "group": {
+        "en": "Other",
+        "hu": "Egyéb"
+      },
+      "items": [
+        "Git",
+        "GitHub",
+        {
+          "en": "Strong mathematics",
+          "hu": "Erős matematikai tudás"
+        }
       ]
     }
   ],
-
   "languages": [
-    { "name": { "en": "Hungarian", "hu": "Magyar" }, "level": { "en": "Native", "hu": "Anyanyelv" } },
-    { "name": { "en": "English",   "hu": "Angol" },  "level": "C1" },
-    { "name": { "en": "German",    "hu": "Német" },  "level": "B1" }
+    {
+      "name": {
+        "en": "Hungarian",
+        "hu": "Magyar"
+      },
+      "level": {
+        "en": "Native",
+        "hu": "Anyanyelv"
+      }
+    },
+    {
+      "name": {
+        "en": "English",
+        "hu": "Angol"
+      },
+      "level": "C1"
+    },
+    {
+      "name": {
+        "en": "German",
+        "hu": "Német"
+      },
+      "level": "B1"
+    }
   ],
-
   "experience": [
     {
       "company": "Dlabs",
       "url": null,
       "location": null,
-      "role": { "en": "Software Developer Intern", "hu": "Szoftverfejlesztő gyakornok" },
+      "role": {
+        "en": "Software Developer Intern",
+        "hu": "Szoftverfejlesztő gyakornok"
+      },
       "start": null,
       "end": null,
       "bullets": {
@@ -92,18 +197,38 @@
           "A felületet is módosítottam a többláncos adatokhoz, és megtanultam, hol érdemes AI-eszközöket használni a mindennapi fejlesztésben."
         ]
       },
-      "stack": ["Rust", "TypeScript", "Polkadot", "Blockchain"],
+      "stack": [
+        "Rust",
+        "TypeScript",
+        "Polkadot",
+        "Blockchain"
+      ],
       "skills": [
-        { "en": "Refactoring", "hu": "Refaktorálás" },
-        { "en": "Testing", "hu": "Tesztelés" },
-        { "en": "Full-stack development", "hu": "Full-stack fejlesztés" }
+        {
+          "en": "Refactoring",
+          "hu": "Refaktorálás"
+        },
+        {
+          "en": "Testing",
+          "hu": "Tesztelés"
+        },
+        {
+          "en": "Full-stack development",
+          "hu": "Full-stack fejlesztés"
+        }
       ]
     },
     {
       "company": "BME",
       "url": "https://www.bme.hu/",
-      "location": { "en": "Budapest", "hu": "Budapest" },
-      "role": { "en": "C++ Lab Demonstrator (Teaching Assistant)", "hu": "C++ labor demonstrátor" },
+      "location": {
+        "en": "Budapest",
+        "hu": "Budapest"
+      },
+      "role": {
+        "en": "C++ Lab Demonstrator (Teaching Assistant)",
+        "hu": "C++ labor demonstrátor"
+      },
       "start": null,
       "end": null,
       "bullets": {
@@ -120,17 +245,31 @@
           "ZH-felügyelet: csalás elleni felügyelet és segítség az esetleges technikai problémákban."
         ]
       },
-      "stack": ["C++"],
+      "stack": [
+        "C++"
+      ],
       "skills": [
-        { "en": "Meeting deadlines", "hu": "Határidők betartása" },
+        {
+          "en": "Meeting deadlines",
+          "hu": "Határidők betartása"
+        },
         "OOP"
       ]
     },
     {
-      "company": { "en": "Freelance", "hu": "Szabadúszó" },
+      "company": {
+        "en": "Freelance",
+        "hu": "Szabadúszó"
+      },
       "url": null,
-      "location": { "en": "Online", "hu": "Online" },
-      "role": { "en": "Programming Tutor", "hu": "Magántanár (programozás)" },
+      "location": {
+        "en": "Online",
+        "hu": "Online"
+      },
+      "role": {
+        "en": "Programming Tutor",
+        "hu": "Magántanár (programozás)"
+      },
       "start": null,
       "end": null,
       "bullets": {
@@ -141,18 +280,35 @@
           "Segítettem diákoknak Pythonban, és felkészítettem őket az érettségire, ZH-ra vagy más számonkérésekre."
         ]
       },
-      "stack": ["Python"],
+      "stack": [
+        "Python"
+      ],
       "skills": [
-        { "en": "Empathy", "hu": "Empátia" },
-        { "en": "Patience", "hu": "Türelem" },
-        { "en": "Communication", "hu": "Kommunikáció" }
+        {
+          "en": "Empathy",
+          "hu": "Empátia"
+        },
+        {
+          "en": "Patience",
+          "hu": "Türelem"
+        },
+        {
+          "en": "Communication",
+          "hu": "Kommunikáció"
+        }
       ]
     },
     {
-      "company": { "en": "Various", "hu": "Itt-ott" },
+      "company": {
+        "en": "Various",
+        "hu": "Itt-ott"
+      },
       "url": null,
       "location": null,
-      "role": { "en": "Other jobs", "hu": "Egyéb" },
+      "role": {
+        "en": "Other jobs",
+        "hu": "Egyéb"
+      },
       "start": null,
       "end": null,
       "bullets": {
@@ -165,31 +321,49 @@
       },
       "stack": [],
       "skills": [
-        { "en": "Fast, precise work", "hu": "Gyors, precíz munka" },
-        { "en": "High standards", "hu": "Igényesség" },
-        { "en": "Quick learner", "hu": "Tanulékonyság" }
+        {
+          "en": "Fast, precise work",
+          "hu": "Gyors, precíz munka"
+        },
+        {
+          "en": "High standards",
+          "hu": "Igényesség"
+        },
+        {
+          "en": "Quick learner",
+          "hu": "Tanulékonyság"
+        }
       ]
     }
   ],
-
   "projects": [
     {
-      "name": { "en": "Sudoku Solver", "hu": "Sudoku megoldó" },
+      "name": {
+        "en": "Sudoku Solver",
+        "hu": "Sudoku megoldó"
+      },
       "url": "https://github.com/BKTB888/nagyHazi",
       "description": {
         "en": "Sudoku solver written in C.",
         "hu": "C nyelven írt Sudoku-megoldó."
       },
-      "stack": ["C"]
+      "stack": [
+        "C"
+      ]
     },
     {
-      "name": { "en": "Path Finder", "hu": "Útvonalkereső" },
+      "name": {
+        "en": "Path Finder",
+        "hu": "Útvonalkereső"
+      },
       "url": "https://github.com/BKTB888/PathFinder",
       "description": {
         "en": "Path-finding application written in C++.",
         "hu": "C++ nyelven írt útvonalkereső alkalmazás."
       },
-      "stack": ["C++"]
+      "stack": [
+        "C++"
+      ]
     },
     {
       "name": "LifeSim",
@@ -198,7 +372,9 @@
         "en": "Life simulation written in Java.",
         "hu": "Java nyelven írt életszimuláció."
       },
-      "stack": ["Java"]
+      "stack": [
+        "Java"
+      ]
     },
     {
       "name": "Mankala",
@@ -207,33 +383,51 @@
         "en": "Mancala board game implemented in Rust.",
         "hu": "Mankala táblajáték Rust nyelven."
       },
-      "stack": ["Rust"]
+      "stack": [
+        "Rust"
+      ]
     },
     {
-      "name": { "en": "Risk (board game) probabilities", "hu": "Rizikó (társas) valószínűségek" },
+      "name": {
+        "en": "Risk (board game) probabilities",
+        "hu": "Rizikó (társas) valószínűségek"
+      },
       "url": "https://colab.research.google.com/drive/1nlyGHUVxSv23_C1Nc-zb1LoYxlsrkrMb?usp=sharing",
       "description": {
         "en": "Probability analysis of the Risk board game's battles in a Python notebook.",
         "hu": "A Rizikó csatáinak valószínűségi elemzése Python notebookban."
       },
-      "stack": ["Python"]
+      "stack": [
+        "Python"
+      ]
     }
   ],
-
   "education": [
     {
-      "school": { "en": "Budapest University of Technology and Economics (BME)", "hu": "Budapesti Műszaki és Gazdaságtudományi Egyetem (BME)" },
-      "degree": { "en": "BSc in Computer Engineering", "hu": "Mérnökinformatikus alapszak (BSc)" },
+      "school": {
+        "en": "Budapest University of Technology and Economics (BME)",
+        "hu": "Budapesti Műszaki és Gazdaságtudományi Egyetem (BME)"
+      },
+      "degree": {
+        "en": "BSc in Computer Engineering",
+        "hu": "Mérnökinformatikus alapszak (BSc)"
+      },
       "start": "2023",
       "end": null,
       "note": null
     }
   ],
-
   "certificates": [],
-
   "interests": {
-    "en": ["Sports", "Board games", "Programming"],
-    "hu": ["Sport", "Társasjátékok", "Programozás"]
+    "en": [
+      "Sports",
+      "Board games",
+      "Programming"
+    ],
+    "hu": [
+      "Sport",
+      "Társasjátékok",
+      "Programozás"
+    ]
   }
 }

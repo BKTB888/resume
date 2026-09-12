@@ -89,9 +89,9 @@
     const b = data.basics || {};
     const parts = [];
 
-    const photo = pickedPhoto() || b.photo;
+    const photo = b.photo;
     const avatar = photo
-      ? `<div class="avatar avatar--photo"><div class="avatar__frame" style="transform:${frameCss(frameFor(photo))}"><img src="${esc(photo)}" alt="${esc(t(b.name))}" onload="this.classList.add(this.naturalWidth >= this.naturalHeight ? 'is-landscape' : 'is-portrait')"></div></div>`
+      ? `<div class="avatar avatar--photo"><div class="avatar__frame" style="transform:${frameCss(frameFor())}"><img src="${esc(photo)}" alt="${esc(t(b.name))}" onload="this.classList.add(this.naturalWidth >= this.naturalHeight ? 'is-landscape' : 'is-portrait')"></div></div>`
       : `<div class="avatar avatar--initials" aria-hidden="true">${esc(initials(t(b.name)))}</div>`;
 
     parts.push(`
@@ -238,177 +238,15 @@
     document.getElementById("main").innerHTML = parts.join("");
   }
 
-  /* ----- photo picker (only while basics.photoCandidates exists) ---------- */
-
-  const PHOTO_KEY = "resume.photo";
-  const FRAME_KEY = "resume.photoFrame:";
-  const FRAME_DEFAULT = { scale: 1, x: 0, y: 0 };
-  const SCALE_MIN = 1, SCALE_MAX = 10;
+  /* ----- photo framing (basics.photoFrame: scale + offsets in % of circle) --- */
 
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
-  const round1 = (v) => Math.round(v * 10) / 10;
 
-  function normFrame(f) {
-    return {
-      scale: clamp(Number(f?.scale) || 1, SCALE_MIN, SCALE_MAX),
-      x: round1(Number(f?.x) || 0),
-      y: round1(Number(f?.y) || 0),
-    };
+  function frameFor() {
+    const f = data.basics?.photoFrame || {};
+    return { scale: clamp(Number(f.scale) || 1, 1, 10), x: Number(f.x) || 0, y: Number(f.y) || 0 };
   }
-
-  // x/y are % of the circle diameter, so the same numbers frame the 128px
-  // screen avatar and the 30mm print avatar identically.
   const frameCss = (f) => `translate(${f.x}%, ${f.y}%) scale(${f.scale})`;
-
-  // Frame for a photo: browser-local adjustment for a candidate, else resume.json's.
-  function frameFor(src) {
-    try {
-      const raw = localStorage.getItem(FRAME_KEY + src);
-      if (raw) return normFrame(JSON.parse(raw));
-    } catch (_) { /* ignore */ }
-    return normFrame(data.basics?.photoFrame || FRAME_DEFAULT);
-  }
-
-  function saveFrame(src, f) {
-    try { localStorage.setItem(FRAME_KEY + src, JSON.stringify(normFrame(f))); } catch (_) { /* ignore */ }
-  }
-
-  // Returns the candidate chosen in this browser, if it is still listed.
-  function pickedPhoto() {
-    const list = data.basics?.photoCandidates;
-    if (!has(list)) return null;
-    try {
-      const v = localStorage.getItem(PHOTO_KEY);
-      return list.includes(v) ? v : null;
-    } catch (_) { return null; }
-  }
-
-  // Apply a frame to the live avatar without re-rendering the whole sidebar.
-  function applyFrame(f) {
-    const fr = document.querySelector(".avatar__frame");
-    if (fr) fr.style.transform = frameCss(f);
-    const slider = document.getElementById("pickerZoom");
-    if (slider) slider.value = f.scale;
-    const out = document.getElementById("pickerZoomVal");
-    if (out) out.textContent = `${f.scale.toFixed(2)}×`;
-    const code = document.getElementById("pickerCode");
-    if (code) code.textContent = pickerCode(pickedPhoto(), f);
-  }
-
-  const pickerCode = (src, f) => src
-    ? `"photo": "${src}",\n"photoFrame": ${JSON.stringify(normFrame(f))}`
-    : `"photo": null`;
-
-  // Drag to pan / wheel to zoom on the avatar itself (only while picking).
-  function bindAvatarGestures() {
-    const el = document.querySelector(".avatar--photo");
-    const src = pickedPhoto();
-    if (!el || !src || el.dataset.bound) return;
-    el.dataset.bound = "1";
-    el.classList.add("is-adjustable");
-
-    let start = null, live = null;
-    el.addEventListener("pointerdown", (ev) => {
-      start = { px: ev.clientX, py: ev.clientY, f: frameFor(src) };
-      live = start.f;
-      el.setPointerCapture(ev.pointerId);
-      el.classList.add("is-dragging");
-      ev.preventDefault();
-    });
-    el.addEventListener("pointermove", (ev) => {
-      if (!start) return;
-      // translate % is relative to the frame's width (the circle inside the border)
-      const d = el.querySelector(".avatar__frame").offsetWidth;
-      live = normFrame({
-        scale: start.f.scale,
-        x: start.f.x + ((ev.clientX - start.px) / d) * 100,
-        y: start.f.y + ((ev.clientY - start.py) / d) * 100,
-      });
-      applyFrame(live);
-    });
-    const end = () => {
-      if (!start) return;
-      saveFrame(src, live);
-      start = null;
-      el.classList.remove("is-dragging");
-    };
-    el.addEventListener("pointerup", end);
-    el.addEventListener("pointercancel", end);
-    el.addEventListener("wheel", (ev) => {
-      ev.preventDefault();
-      const f = frameFor(src);
-      f.scale = clamp(round1(f.scale * 20 - Math.sign(ev.deltaY)) / 20, SCALE_MIN, SCALE_MAX); // 0.05 steps
-      saveFrame(src, f);
-      applyFrame(normFrame(f));
-    }, { passive: false });
-  }
-
-  function renderPicker() {
-    const list = data.basics?.photoCandidates;
-    let el = document.getElementById("picker");
-    if (!has(list)) { el?.remove(); return; }
-    if (!el) {
-      el = document.createElement("aside");
-      el.id = "picker";
-      el.className = "picker";
-      document.body.appendChild(el);
-
-      el.addEventListener("click", (ev) => {
-        const btn = ev.target.closest("[data-photo]");
-        if (btn) {
-          try {
-            if (btn.dataset.photo) localStorage.setItem(PHOTO_KEY, btn.dataset.photo);
-            else localStorage.removeItem(PHOTO_KEY);
-          } catch (_) { /* ignore */ }
-          renderSide();
-          renderPicker();
-          return;
-        }
-        if (ev.target.closest("#pickerReset")) {
-          const src = pickedPhoto();
-          if (!src) return;
-          try { localStorage.removeItem(FRAME_KEY + src); } catch (_) { /* ignore */ }
-          applyFrame(frameFor(src));
-        }
-      });
-      el.addEventListener("input", (ev) => {
-        if (ev.target.id !== "pickerZoom") return;
-        const src = pickedPhoto();
-        if (!src) return;
-        const f = frameFor(src);
-        f.scale = Number(ev.target.value);
-        saveFrame(src, f);
-        applyFrame(normFrame(f));
-      });
-    }
-
-    const current = pickedPhoto();
-    const frame = current ? frameFor(current) : FRAME_DEFAULT;
-    const thumbs = list.map((src) => `
-      <button type="button" class="picker__thumb ${src === current ? "is-active" : ""}" data-photo="${esc(src)}" title="${esc(src)}">
-        <img src="${esc(src)}" alt="">
-        <span>${esc(src.replace(/^assets\/photos\//, "").replace(/\.\w+$/, ""))}</span>
-      </button>`).join("");
-    const adjust = current ? `
-      <div class="picker__zoom">
-        <label for="pickerZoom">Zoom</label>
-        <input type="range" id="pickerZoom" min="${SCALE_MIN}" max="${SCALE_MAX}" step="0.05" value="${frame.scale}">
-        <output id="pickerZoomVal">${frame.scale.toFixed(2)}×</output>
-        <button type="button" id="pickerReset" class="picker__reset">Reset</button>
-      </div>
-      <div class="picker__hint">Drag the photo to move it · scroll on it to zoom</div>` : "";
-    el.innerHTML = `
-      <div class="picker__head">Photo picker</div>
-      <div class="picker__grid">
-        <button type="button" class="picker__thumb picker__thumb--none ${current ? "" : "is-active"}" data-photo="" title="No photo (initials)">
-          <span class="picker__none">${esc(initials(t(data.basics?.name)))}</span><span>none</span>
-        </button>
-        ${thumbs}
-      </div>
-      ${adjust}
-      <pre class="picker__path" id="pickerCode">${esc(pickerCode(current, frame))}</pre>`;
-    bindAvatarGestures();
-  }
 
   /* ----- chrome (top bar, title, lang) ----------------------------------- */
 
@@ -438,7 +276,6 @@
     renderChrome();
     renderSide();
     renderMain();
-    renderPicker();
   }
 
   function setLang(next, { persist = true } = {}) {
