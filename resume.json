@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "pdf": { "en": "resume-en.pdf", "hu": "resume-hu.pdf" }
+  },
+
+  "ui": {
+    "download":     { "en": "Download PDF",        "hu": "PDF letöltése" },
+    "print":        { "en": "Print",               "hu": "Nyomtatás" },
+    "present":      { "en": "Present",             "hu": "jelenleg" },
+    "contact":      { "en": "Contact",             "hu": "Elérhetőség" },
+    "skills":       { "en": "Skills",              "hu": "Készségek" },
+    "languages":    { "en": "Languages",           "hu": "Nyelvek" },
+    "summary":      { "en": "Profile",             "hu": "Bemutatkozás" },
+    "experience":   { "en": "Experience",          "hu": "Tapasztalat" },
+    "projects":     { "en": "Projects",            "hu": "Projektek" },
+    "education":    { "en": "Education",           "hu": "Tanulmányok" },
+    "certificates": { "en": "Certificates",        "hu": "Tanúsítványok" },
+    "interests":    { "en": "Interests",           "hu": "Érdeklődés" },
+    "stack":        { "en": "Stack",               "hu": "Technológiák" },
+    "langSwitch":   { "en": "Switch language",     "hu": "Nyelvváltás" }
+  },
+
+  "basics": {
+    "name": "Your Name",
+    "title": { "en": "Software Developer", "hu": "Szoftverfejlesztő" },
+    "photo": null,
+    "location": { "en": "Budapest, Hungary", "hu": "Budapest" },
+    "email": "you@example.com",
+    "phone": "+36 30 123 4567",
+    "website": "https://example.com",
+    "links": [
+      { "label": "GitHub",   "url": "https://github.com/yourhandle" },
+      { "label": "LinkedIn", "url": "https://linkedin.com/in/yourhandle" }
+    ],
+    "summary": {
+      "en": "Developer with 5+ years of experience building web applications and backend services. I care about clean architecture, fast feedback loops and shipping things people actually use. Comfortable owning a feature end to end — from database schema to pixel-level UI.",
+      "hu": "5+ év tapasztalattal rendelkező fejlesztő, webalkalmazások és backend szolgáltatások területén. Fontos számomra a tiszta architektúra, a gyors visszacsatolás és az, hogy amit építek, azt valóban használják. Egy funkciót az adatbázissémától a pixelpontos felületig szívesen viszek végig."
+    }
+  },
+
+  "skills": [
+    {
+      "group": { "en": "Languages", "hu": "Nyelvek" },
+      "items": ["TypeScript", "Python", "Go", "SQL"]
+    },
+    {
+      "group": { "en": "Frontend", "hu": "Frontend" },
+      "items": ["React", "Next.js", "Tailwind", "Vite"]
+    },
+    {
+      "group": { "en": "Backend & Data", "hu": "Backend és adat" },
+      "items": ["Node.js", "FastAPI", "PostgreSQL", "Redis"]
+    },
+    {
+      "group": { "en": "Tooling", "hu": "Eszközök" },
+      "items": ["Docker", "GitHub Actions", "AWS", "Linux"]
+    }
+  ],
+
+  "languages": [
+    { "name": { "en": "Hungarian", "hu": "Magyar" }, "level": { "en": "Native",  "hu": "Anyanyelv" } },
+    { "name": { "en": "English",   "hu": "Angol" },  "level": { "en": "Fluent (C1)", "hu": "Folyékony (C1)" } },
+    { "name": { "en": "German",    "hu": "Német" },  "level": { "en": "Basic (A2)",  "hu": "Alap (A2)" } }
+  ],
+
+  "experience": [
+    {
+      "company": "Acme Technologies",
+      "url": "https://example.com",
+      "location": { "en": "Budapest (hybrid)", "hu": "Budapest (hibrid)" },
+      "role": { "en": "Senior Software Developer", "hu": "Senior szoftverfejlesztő" },
+      "start": "2022-03",
+      "end": null,
+      "bullets": {
+        "en": [
+          "Lead developer of the customer-facing web platform serving 40k monthly users.",
+          "Cut CI pipeline time from 25 to 7 minutes by parallelising tests and caching builds.",
+          "Mentored two junior developers; introduced code review guidelines adopted team-wide."
+        ],
+        "hu": [
+          "A havi 40 ezer felhasználót kiszolgáló ügyfélportál vezető fejlesztője.",
+          "A CI futásidejét 25-ről 7 percre csökkentettem tesztek párhuzamosításával és build cache-eléssel.",
+          "Két junior fejlesztő mentorálása; a csapat egészében bevezetett code review irányelvek kidolgozása."
+        ]
+      },
+      "stack": ["TypeScript", "React", "Node.js", "PostgreSQL", "AWS"]
+    },
+    {
+      "company": "Startup Kft.",
+      "url": null,
+      "location": { "en": "Remote", "hu": "Távmunka" },
+      "role": { "en": "Full-stack Developer", "hu": "Full-stack fejlesztő" },
+      "start": "2019-09",
+      "end": "2022-02",
+      "bullets": {
+        "en": [
+          "Built the MVP of a B2B invoicing product from scratch; first paying customer within 4 months.",
+          "Designed the REST API and data model used by the mobile and web clients.",
+          "Set up monitoring and on-call rotation that reduced incident response time by half."
+        ],
+        "hu": [
+          "Egy B2B számlázó termék MVP-jét építettem fel nulláról; az első fizető ügyfél 4 hónapon belül érkezett.",
+          "A mobil és web kliensek által használt REST API és adatmodell tervezése.",
+          "Monitorozás és ügyeleti rend bevezetése, amely felére csökkentette az incidensek reakcióidejét."
+        ]
+      },
+      "stack": ["Python", "FastAPI", "Vue", "Docker"]
+    },
+    {
+      "company": "University Research Lab",
+      "url": null,
+      "location": { "en": "Budapest", "hu": "Budapest" },
+      "role": { "en": "Software Engineering Intern", "hu": "Szoftverfejlesztő gyakornok" },
+      "start": "2018-06",
+      "end": "2019-08",
+      "bullets": {
+        "en": [
+          "Developed data-processing scripts and dashboards for an ongoing research project.",
+          "Automated a manual reporting workflow, saving the team ~6 hours per week."
+        ],
+        "hu": [
+          "Adatfeldolgozó szkriptek és dashboardok fejlesztése egy futó kutatási projekthez.",
+          "Egy manuális riportálási folyamat automatizálása, heti ~6 óra megtakarítással."
+        ]
+      },
+      "stack": ["Python", "Pandas", "SQL"]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "Open-source CLI tool",
+      "url": "https://github.com/yourhandle/project",
+      "description": {
+        "en": "A command-line utility for syncing configuration across machines. 300+ GitHub stars, used in several companies' onboarding scripts.",
+        "hu": "Parancssori eszköz konfigurációk gépek közötti szinkronizálására. 300+ GitHub csillag, több cég onboarding szkriptjeiben használják."
+      },
+      "stack": ["Go", "SQLite"]
+    },
+    {
+      "name": "Personal finance tracker",
+      "url": null,
+      "description": {
+        "en": "Self-hosted web app with bank-statement import, categorisation rules and monthly reports.",
+        "hu": "Saját üzemeltetésű webalkalmazás bankkivonat-importtal, kategorizálási szabályokkal és havi riportokkal."
+      },
+      "stack": ["Next.js", "Prisma", "PostgreSQL"]
+    }
+  ],
+
+  "education": [
+    {
+      "school": { "en": "Budapest University of Technology and Economics", "hu": "Budapesti Műszaki és Gazdaságtudományi Egyetem" },
+      "degree": { "en": "MSc in Computer Engineering", "hu": "Mérnökinformatikus MSc" },
+      "start": "2017",
+      "end": "2019",
+      "note": { "en": "Thesis: distributed job scheduling", "hu": "Diplomamunka: elosztott feladatütemezés" }
+    },
+    {
+      "school": { "en": "Budapest University of Technology and Economics", "hu": "Budapesti Műszaki és Gazdaságtudományi Egyetem" },
+      "degree": { "en": "BSc in Computer Engineering", "hu": "Mérnökinformatikus BSc" },
+      "start": "2013",
+      "end": "2017",
+      "note": null
+    }
+  ],
+
+  "certificates": [
+    { "name": "AWS Certified Developer – Associate", "issuer": "Amazon Web Services", "date": "2023-05", "url": null }
+  ],
+
+  "interests": {
+    "en": ["Cycling", "Home automation", "Board games"],
+    "hu": ["Kerékpározás", "Okosotthon", "Társasjátékok"]
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume</title>
+  <meta name="description" content="Software developer résumé / önéletrajz">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top bar: language switch + PDF download. Hidden in print. -->
+  <header class="topbar" id="topbar">
+    <div class="topbar__inner">
+      <div class="lang" role="group" aria-label="Language">
+        <button class="lang__btn" data-lang="en" type="button" lang="en">EN</button>
+        <button class="lang__btn" data-lang="hu" type="button" lang="hu">HU</button>
+      </div>
+      <div class="topbar__actions">
+        <button class="btn btn--ghost" id="printBtn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+          <span data-ui="print">Print</span>
+        </button>
+        <a class="btn btn--primary" id="downloadBtn" href="resume-en.pdf" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-ui="download">Download PDF</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Continuous sidebar band for multi-page print output -->
+  <div class="print-band" aria-hidden="true"></div>
+
+  <main class="sheet" id="sheet">
+    <aside class="side" id="side"></aside>
+    <section class="main" id="main"></section>
+  </main>
+
+  <noscript>
+    <p class="noscript">This page needs JavaScript to render. The PDF versions are available directly:
+      <a href="resume-en.pdf">English</a> · <a href="resume-hu.pdf">Magyar</a>.</p>
+  </noscript>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
