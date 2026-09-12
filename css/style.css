@@ -245,6 +245,13 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 .langs li { display: flex; justify-content: space-between; gap: 12px; }
 .langs__level { color: var(--side-muted); }
 
+.edus { display: flex; flex-direction: column; gap: 12px; }
+.edu { display: flex; flex-direction: column; gap: 2px; }
+.edu__degree { font-size: 13.5px; font-weight: 600; color: #fff; line-height: 1.35; }
+.edu__school { font-size: 12.5px; color: var(--side-muted); line-height: 1.4; }
+.edu__date { font: 500 12px/1.6 var(--font-head); color: var(--accent); }
+.edu__note { font-size: 12.5px; color: var(--side-text); }
+
 .interests { display: flex; flex-wrap: wrap; gap: 6px; }
 
 /* --------------------------------------------------------------------------
@@ -468,7 +475,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 @media print {
   :root {
     --side-w: 66mm;
-    --page-margin: 9mm;
+    --page-margin: 11mm;
     --page-bg: #fff;
   }
 
@@ -503,7 +510,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .side {
     background: transparent;        /* the root background provides the colour */
     padding: 2mm 6mm 0 6.5mm;
-    gap: 6mm;
+    gap: 4.8mm;
   }
   .main {
     background: transparent;
@@ -525,20 +532,25 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .tags { gap: 1.2mm; }
   .tag { font-size: 8.5pt; padding: 1.2mm 2.2mm; background: rgba(255,255,255,0.12); }
   .langs { font-size: 9.5pt; gap: 1.5mm; }
+  .edus { gap: 2.5mm; }
+  .edu__degree { font-size: 9.5pt; }
+  .edu__school { font-size: 8.6pt; }
+  .edu__date { font-size: 8pt; }
+  .edu__note { font-size: 8.6pt; }
 
   /* Main column: compact enough for a typical CV to fit one A4 page */
-  .main { gap: 4mm; }
-  .section { gap: 2.6mm; }
+  .main { gap: 5.5mm; }
+  .section { gap: 3.2mm; }
   .section__heading { font-size: 11.5pt; padding-bottom: 1.6mm; break-after: avoid; }
-  .summary { font-size: 9pt; line-height: 1.42; max-width: none; }
-  .timeline { gap: 3mm; }
+  .summary { font-size: 9.4pt; line-height: 1.5; max-width: none; }
+  .timeline { gap: 4.5mm; }
   .entry { padding-left: 6.5mm; break-inside: avoid; }
   .entry::before { width: 3mm; height: 3mm; top: 1.4mm; box-shadow: 0 0 0 2px #fff; }
   .entry__role { font-size: 10.4pt; }
   .entry__org { font-size: 9pt; margin-top: 0; }
   .entry__date { font-size: 8pt; padding: 0.4mm 2.2mm; }
-  .bullets { margin-top: 1.2mm; gap: 0.5mm; }
-  .bullets li { font-size: 8.7pt; line-height: 1.32; }
+  .bullets { margin-top: 1.4mm; gap: 0.8mm; }
+  .bullets li { font-size: 9pt; line-height: 1.38; }
   .bullets li::before { top: 2mm; }
   .stack { margin-top: 1.2mm; gap: 1.2mm; }
   /* Stack + Skills share one line inside experience entries */
@@ -547,7 +559,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .stack__label { font-size: 7pt; }
 
   /* Projects: one compact row each instead of the 2-column card grid */
-  .projects { display: flex; flex-direction: column; gap: 1.2mm; }
+  .projects { display: flex; flex-direction: column; gap: 1.8mm; }
   .project {
     display: grid;
     grid-template-columns: 46mm minmax(0, 1fr) auto;

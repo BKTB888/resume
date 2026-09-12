@@ -141,6 +141,21 @@
         </section>`);
     }
 
+    if (has(data.education)) {
+      const rows = data.education.map((e) => `
+        <li class="edu">
+          <div class="edu__degree">${esc(t(e.degree))}</div>
+          <div class="edu__school">${esc(t(e.school))}</div>
+          ${datePill("edu__date", e.start, e.end)}
+          ${e.note ? `<div class="edu__note">${esc(t(e.note))}</div>` : ""}
+        </li>`).join("");
+      parts.push(`
+        <section class="side__section">
+          <h2 class="side__heading">${esc(ui("education"))}</h2>
+          <ul class="edus">${rows}</ul>
+        </section>`);
+    }
+
     const interests = t(data.interests);
     if (has(interests)) {
       parts.push(`
@@ -202,17 +217,6 @@
           </article>`;
       }).join("");
       parts.push(section("projects", `<div class="projects">${cards}</div>`));
-    }
-
-    if (has(data.education)) {
-      const rows = data.education.map((e) => `
-        <div class="row">
-          <div class="row__title">${esc(t(e.degree))}</div>
-          ${datePill("row__date", e.start, e.end)}
-          <div class="row__sub">${esc(t(e.school))}</div>
-          ${e.note ? `<div class="row__note">${esc(t(e.note))}</div>` : ""}
-        </div>`).join("");
-      parts.push(section("education", `<div class="rows">${rows}</div>`));
     }
 
     if (has(data.certificates)) {
