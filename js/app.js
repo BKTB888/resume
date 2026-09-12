@@ -59,7 +59,11 @@
   const initials = (name) => String(name || "")
     .split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
 
-  const prettyUrl = (u) => String(u).replace(/^https?:\/\//, "").replace(/\/$/, "");
+  const prettyUrl = (u) => {
+    let d = String(u);
+    try { d = decodeURIComponent(d); } catch (_) { /* leave as is */ }
+    return d.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
+  };
 
   const linkIcon = (label) => {
     const l = String(label).toLowerCase();
@@ -104,7 +108,7 @@
     if (b.phone)    contact.push(`<li>${ICONS.phone}<a href="tel:${esc(b.phone.replace(/\s+/g, ""))}">${esc(b.phone)}</a></li>`);
     if (b.website)  contact.push(`<li>${ICONS.globe}<a href="${esc(b.website)}" target="_blank" rel="noopener">${esc(prettyUrl(b.website))}</a></li>`);
     (b.links || []).forEach((l) => {
-      contact.push(`<li>${linkIcon(l.label)}<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(prettyUrl(l.url))}</a></li>`);
+      contact.push(`<li>${linkIcon(l.label)}<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(t(l.text) || prettyUrl(l.url))}</a></li>`);
     });
     if (contact.length) {
       parts.push(`

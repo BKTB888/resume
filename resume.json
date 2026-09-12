@@ -30,7 +30,9 @@
     "phone": "+36 70 938 7844",
     "website": null,
     "links": [
-      { "label": "GitHub", "url": "https://github.com/BKTB888" }
+      { "label": "GitHub", "url": "https://github.com/BKTB888" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/tivadar-b%C3%A1nfalvi-kov%C3%A1cs-4009b7381/",
+        "text": { "en": "LinkedIn profile", "hu": "LinkedIn-profil" } }
     ],
     "summary": {
       "en": "I have always looked for new opportunities and challenges, and I am used to holding my own in competitive situations. I usually find common ground with people easily. I enjoy sports, board games and programming.",
