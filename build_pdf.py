@@ -7,9 +7,11 @@
 Usage:
     uv run playwright install chromium   # once
     uv run build_pdf.py                  # writes resume-*.pdf (+ screenshots/)
+    uv run build_pdf.py --theme slate-teal   # render with another colour preset (id from resume.json "theme")
 """
 from __future__ import annotations
 
+import argparse
 import http.server
 import json
 import socketserver
@@ -37,6 +39,11 @@ def serve() -> tuple[socketserver.TCPServer, int]:
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--theme", metavar="ID", help='colour preset id from resume.json "theme.presets" (default: theme.active)')
+    args = ap.parse_args()
+    theme_q = f"&theme={args.theme}" if args.theme else ""
+
     pdf_names = json.loads((ROOT / "resume.json").read_text(encoding="utf-8")).get("meta", {}).get("pdf", {})
     server, port = serve()
     SHOTS.mkdir(exist_ok=True)
@@ -46,7 +53,7 @@ def main() -> None:
             browser = p.chromium.launch()
             for lang in LANGS:
                 out = ROOT / pdf_names.get(lang, f"resume-{lang}.pdf")
-                url = f"http://127.0.0.1:{port}/index.html?lang={lang}"
+                url = f"http://127.0.0.1:{port}/index.html?lang={lang}{theme_q}"
 
                 page = browser.new_page(viewport={"width": 1280, "height": 900}, device_scale_factor=2)
                 page.goto(url, wait_until="networkidle")

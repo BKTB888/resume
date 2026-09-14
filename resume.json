@@ -5,6 +5,66 @@
       "hu": "resume-hu.pdf"
     }
   },
+  "theme": {
+    "active": "navy-amber",
+    "presets": [
+      {
+        "id": "navy-amber",
+        "name": "Navy & amber",
+        "colors": {
+          "side": "#14213D",
+          "sideDeep": "#0E172B",
+          "accent": "#FCA311",
+          "pageBg": "#E9ECF1",
+          "ink": "#1A1A1A"
+        }
+      },
+      {
+        "id": "forest-gold",
+        "name": "Forest & gold",
+        "colors": {
+          "side": "#1F3D2B",
+          "sideDeep": "#14291D",
+          "accent": "#D9A441",
+          "pageBg": "#EDEFE9",
+          "ink": "#1B1F1A"
+        }
+      },
+      {
+        "id": "charcoal-coral",
+        "name": "Charcoal & coral",
+        "colors": {
+          "side": "#2B2D33",
+          "sideDeep": "#1C1D22",
+          "accent": "#F26B5B",
+          "pageBg": "#EEEDEB",
+          "ink": "#1E1E1E"
+        }
+      },
+      {
+        "id": "slate-teal",
+        "name": "Slate & teal",
+        "colors": {
+          "side": "#26364A",
+          "sideDeep": "#1A2636",
+          "accent": "#2BB3A3",
+          "pageBg": "#E8EEF0",
+          "ink": "#16202A"
+        }
+      },
+      {
+        "id": "plum-sand",
+        "name": "Plum & sand",
+        "colors": {
+          "side": "#3B2440",
+          "sideDeep": "#27172B",
+          "accent": "#E0B589",
+          "pageBg": "#F0ECEA",
+          "ink": "#211A22"
+        }
+      }
+    ]
+  },
   "ui": {
     "download": {
       "en": "Download PDF",
