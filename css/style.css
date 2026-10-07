@@ -279,6 +279,17 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   font: 500 12.5px/1 var(--font-body);
   color: var(--side-text);
 }
+/* Logo in the tag's text colour, so it suits every colour preset */
+.tag__icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: -0.15em;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
 
 .langs { display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; }
 .langs li { display: flex; justify-content: space-between; gap: 12px; }
