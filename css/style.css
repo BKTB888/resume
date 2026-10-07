@@ -457,6 +457,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 .project__name svg { width: 13px; height: 13px; color: var(--muted); }
 .project .stack { margin-top: 0; gap: 4px; }
 .project__desc { margin-top: 4px; font-size: 13px; color: var(--ink-2); }
+.project--accent { border-color: var(--accent); }
 .project--more {
   display: flex;
   align-items: center;

@@ -342,8 +342,12 @@
       "name": "General MiniMax",
       "url": "https://github.com/BKTB888/General_MiniMax",
       "description": {
-        "en": "Generic alpha-beta search",
-        "hu": "Általános alfa-béta keresés"
+        "en": "generic alpha-beta search",
+        "hu": "általános alfa-béta keresés"
+      },
+      "note": {
+        "en": "My thesis",
+        "hu": "Szakdolgozatom"
       },
       "stack": [
         "Rust"

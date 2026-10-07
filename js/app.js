@@ -211,12 +211,12 @@
           ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(t(p.name))}${ICONS.link}</a>`
           : esc(t(p.name));
         return `
-          <article class="project">
+          <article class="project${p.note ? " project--accent" : ""}">
             <div class="project__head">
               <h3 class="project__name">${name}</h3>
               ${has(p.stack) ? `<div class="stack">${chips(p.stack)}</div>` : ""}
             </div>
-            <p class="project__desc">${esc(t(p.description))}</p>
+            <p class="project__desc">${p.note ? `<strong>${esc(t(p.note))},</strong> ` : ""}${esc(t(p.description))}</p>
           </article>`;
       }).join("");
       const github = data.basics?.links?.find((l) => l.label === "GitHub");
