@@ -402,10 +402,10 @@
         "en": "Sudoku Solver",
         "hu": "Sudoku megoldó"
       },
-      "url": "https://github.com/BKTB888/nagyHazi",
+      "url": "https://github.com/BKTB888/SudokuSolver",
       "description": {
-        "en": "Sudoku solver written in C.",
-        "hu": "C nyelven írt Sudoku-megoldó."
+        "en": "Sudoku solver for any board size, written in C.",
+        "hu": "Tetszőleges méretű táblát kezelő Sudoku-megoldó C nyelven."
       },
       "stack": [
         "C"
@@ -437,11 +437,11 @@
       ]
     },
     {
-      "name": "Mankala",
-      "url": "https://github.com/BKTB888/rust_mankala",
+      "name": "General MiniMax",
+      "url": "https://github.com/BKTB888/General_MiniMax",
       "description": {
-        "en": "Mancala board game implemented in Rust.",
-        "hu": "Mankala táblajáték Rust nyelven."
+        "en": "Alpha-beta search implemented generically for any game, written in Rust.",
+        "hu": "Bármely játékra általánosan megírt alfa-béta keresés Rust nyelven."
       },
       "stack": [
         "Rust"
