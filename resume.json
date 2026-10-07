@@ -429,8 +429,8 @@
       "name": "LifeSim",
       "url": "https://github.com/BKTB888/LifeSim",
       "description": {
-        "en": "Life simulation written in Java.",
-        "hu": "Java nyelven írt életszimuláció."
+        "en": "Life simulator game written in Java.",
+        "hu": "Java nyelven írt életszimulátor játék."
       },
       "stack": [
         "Java"
