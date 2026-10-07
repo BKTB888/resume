@@ -72,20 +72,8 @@
     return ICONS.link;
   };
 
-  // Simple Icons slugs (assets/icons/<slug>.svg) for sidebar tags.
-  const LANG_ICONS = {
-    "Rust": "rust", "TypeScript": "typescript", "C": "c", "C++": "cplusplus",
-    "Java": "openjdk", "Python": "python", "Kotlin": "kotlin", "C#": "csharp",
-  };
-
-  const chips = (items, cls = "chip") => has(items) ? items.map((s) => {
-    const text = t(s);
-    const icon = cls === "tag" && LANG_ICONS[text];
-    // Set inline, not through a CSS variable: there the URL would resolve against css/.
-    const url = `url(assets/icons/${icon}.svg)`;
-    const img = icon ? `<span class="tag__icon" style="-webkit-mask-image: ${url}; mask-image: ${url}"></span>` : "";
-    return `<span class="${cls}">${img}${esc(text)}</span>`;
-  }).join("") : "";
+  const chips = (items, cls = "chip") =>
+    has(items) ? items.map((s) => `<span class="${cls}">${esc(t(s))}</span>`).join("") : "";
 
   const stackRow = (items, labelKey = "stack") => has(items)
     ? `<div class="stack"><span class="stack__label">${esc(ui(labelKey))}</span>${chips(items)}</div>`
