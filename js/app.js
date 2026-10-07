@@ -206,22 +206,24 @@
     }
 
     if (has(data.projects)) {
-      const rows = data.projects.map((p) => {
+      const tiles = data.projects.map((p) => {
         const name = p.url
           ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(t(p.name))}${ICONS.link}</a>`
           : esc(t(p.name));
         return `
           <article class="project">
-            <h3 class="project__name">${name}</h3>
-            <span class="project__desc">${esc(t(p.description))}</span>
-            ${stackRow(p.stack)}
+            <div class="project__head">
+              <h3 class="project__name">${name}</h3>
+              ${has(p.stack) ? `<div class="stack">${chips(p.stack)}</div>` : ""}
+            </div>
+            <p class="project__desc">${esc(t(p.description))}</p>
           </article>`;
       }).join("");
       const github = data.basics?.links?.find((l) => l.label === "GitHub");
       const more = github
-        ? `<a class="projects__more" href="${esc(github.url)}" target="_blank" rel="noopener">${esc(ui("projectsMore"))} →</a>`
+        ? `<a class="project project--more" href="${esc(github.url)}" target="_blank" rel="noopener">${esc(ui("projectsMore"))}</a>`
         : "";
-      parts.push(section("projects", `<div class="projects">${rows}</div>${more}`));
+      parts.push(section("projects", `<div class="projects">${tiles}${more}</div>`));
     }
 
     if (has(data.certificates)) {

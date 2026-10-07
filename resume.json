@@ -103,8 +103,8 @@
       "hu": "Projektek"
     },
     "projectsMore": {
-      "en": "Please check out my GitHub for more interesting projects like these",
-      "hu": "A GitHubomon még sok másik érdekes projektet találhat"
+      "en": "Click here for more",
+      "hu": "Továbbiakért kattintson ide"
     },
     "education": {
       "en": "Education",
@@ -207,6 +207,7 @@
       "items": [
         "Git",
         "GitHub",
+        "Claude Code",
         {
           "en": "Strong mathematics",
           "hu": "Erős matematikai tudás"
@@ -287,120 +288,42 @@
       ]
     },
     {
-      "company": "BME",
-      "url": "https://www.bme.hu/",
-      "location": {
-        "en": "Budapest",
-        "hu": "Budapest"
+      "company": {
+        "en": "BME & freelance",
+        "hu": "BME és szabadúszó"
       },
+      "url": null,
+      "location": null,
       "role": {
-        "en": "C++ Lab Demonstrator (Teaching Assistant)",
-        "hu": "C++ labor demonstrátor"
+        "en": "C++ Lab Demonstrator & Programming Tutor",
+        "hu": "C++ labor demonstrátor és programozás magántanár"
       },
       "start": null,
       "end": null,
       "bullets": {
         "en": [
-          "Helped students solve the laboratory exercises.",
-          "Graded the semester's major homework assignment.",
-          "Compiled the lab entry quizzes: selecting 2 questions per lab that counted towards the students' end-of-semester grade.",
-          "Proctored midterm exams: monitored for cheating and helped with technical problems."
+          "BME C++ lab: helped students with the exercises, graded the major homework, compiled the lab entry quizzes and proctored midterms.",
+          "Private tutoring: taught Python and prepared students for the school-leaving exam, midterms and other assessments."
         ],
         "hu": [
-          "Segítettem a hallgatóknak a laborfeladatok megoldásában.",
-          "Nagy házi feladat értékelése.",
-          "Labor beugró összeállítása: 2 kérdés kiválasztása, ami a félév végi jegyükben pontnak számított.",
-          "ZH-felügyelet: csalás elleni felügyelet és segítség az esetleges technikai problémákban."
+          "BME C++ labor: segítettem a hallgatóknak a laborfeladatokban, értékeltem a nagy házit, összeállítottam a labor beugrókat és ZH-t felügyeltem.",
+          "Magántanítás: Pythont tanítottam, és felkészítettem diákokat az érettségire, ZH-kra és más számonkérésekre."
         ]
       },
       "stack": [
-        "C++"
+        "C++",
+        "Python"
       ],
       "skills": [
+        {
+          "en": "Communication",
+          "hu": "Kommunikáció"
+        },
         {
           "en": "Meeting deadlines",
           "hu": "Határidők betartása"
         },
         "OOP"
-      ]
-    },
-    {
-      "company": {
-        "en": "Freelance",
-        "hu": "Szabadúszó"
-      },
-      "url": null,
-      "location": {
-        "en": "Online",
-        "hu": "Online"
-      },
-      "role": {
-        "en": "Programming Tutor",
-        "hu": "Magántanár (programozás)"
-      },
-      "start": null,
-      "end": null,
-      "bullets": {
-        "en": [
-          "Tutored students in Python and prepared them for the final school-leaving exam, midterms and other assessments."
-        ],
-        "hu": [
-          "Segítettem diákoknak Pythonban, és felkészítettem őket az érettségire, ZH-ra vagy más számonkérésekre."
-        ]
-      },
-      "stack": [
-        "Python"
-      ],
-      "skills": [
-        {
-          "en": "Empathy",
-          "hu": "Empátia"
-        },
-        {
-          "en": "Patience",
-          "hu": "Türelem"
-        },
-        {
-          "en": "Communication",
-          "hu": "Kommunikáció"
-        }
-      ]
-    },
-    {
-      "company": {
-        "en": "Various",
-        "hu": "Itt-ott"
-      },
-      "url": null,
-      "location": null,
-      "role": {
-        "en": "Other jobs",
-        "hu": "Egyéb"
-      },
-      "start": null,
-      "end": null,
-      "bullets": {
-        "en": [
-          "Waiter, server on a boat, stage builder."
-        ],
-        "hu": [
-          "Pincér, hajón felszolgáló, színpadépítő."
-        ]
-      },
-      "stack": [],
-      "skills": [
-        {
-          "en": "Fast, precise work",
-          "hu": "Gyors, precíz munka"
-        },
-        {
-          "en": "High standards",
-          "hu": "Igényesség"
-        },
-        {
-          "en": "Quick learner",
-          "hu": "Tanulékonyság"
-        }
       ]
     }
   ],
@@ -486,12 +409,12 @@
   "certificates": [],
   "aiPhilosophy": {
     "en": [
-      "For every task, I first decide which parts need my direct supervision and where the AI can work on its own. Where the core design is at stake, I use it as a pair programmer, not an autopilot: it builds top-down, one small, reviewable step at a time, and I reject and redirect it often, because I want to understand every line that ships.",
-      "I give it free rein where correctness is easy to check, or where the work scales horizontally, so a mistake can only break one small piece, not the whole framework. There it can try many solutions and keep the best one. For example, it tried out micro-optimisations on small, performance-critical code much faster than I could have. I mainly use Claude Code, but I have tried many other AI tools as well."
+      "For every task, I first decide which parts need my direct supervision. Where the core design is at stake, I work with AI as a pair programmer: top-down, in small reviewable steps, rejecting and redirecting it until I understand and am proud of every line.",
+      "I let it work alone and try many solutions where correctness is easy to check, or where the work scales horizontally so a mistake stays local. For example, it micro-optimised small performance-critical code far faster than I could have."
     ],
     "hu": [
-      "Minden feladatnál először felmérem, mely részek igénylik a közvetlen felügyeletemet, és hol dolgozhat az AI önállóan. Ahol a kód alapvető felépítése a tét, párprogramozóként használom, nem robotpilótaként: felülről lefelé, kis, átnézhető lépésenként építtetem vele a kódot, és gyakran elutasítom a javaslatait vagy más irányba terelem, mert minden sort érteni akarok, ami bekerül a kódba.",
-      "Szabad kezet adok neki, ahol a kód helyessége könnyen ellenőrizhető, vagy ahol a munka horizontálisan skálázódik, mert ott egy hiba csak egy kis részt ronthat el, nem az egész keretrendszert. Ilyenkor sok megoldást kipróbálhat, és a legjobbat tartom meg. Például kis, teljesítménykritikus kódrészeken sokkal gyorsabban próbált ki mikrooptimalizációkat, mint én tudtam volna. Elsősorban a Claude Code-ot használom, de sok más AI-eszközt is kipróbáltam már."
+      "Minden feladatnál először felmérem, mely részek igénylik a közvetlen felügyeletemet. Ahol a kód alapvető felépítése a tét, párprogramozóként dolgozom az AI-jal: felülről lefelé, kis, átnézhető lépésekben, és addig utasítom el vagy terelem más irányba, amíg minden sorra büszke nem vagyok.",
+      "Önállóan dolgozni hagyom, és sok megoldást kipróbálhat ott, ahol a helyesség könnyen ellenőrizhető, vagy a munka horizontálisan skálázódik, így egy hiba csak kis részt érint. Például kis, teljesítménykritikus kódrészeket sokkal gyorsabban mikrooptimalizált, mint én tudtam volna."
     ]
   },
   "interests": {

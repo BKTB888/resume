@@ -336,11 +336,18 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 .summary + .summary { margin-top: 0.6em; }
 
 /* Timeline entries */
-.timeline { display: flex; flex-direction: column; gap: 28px; position: relative; }
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  --dot: 12px;
+  --role-line: calc(16px * 1.2); /* .entry__role font-size × the h3 line-height */
+}
 .timeline::before {
   content: "";
   position: absolute;
-  left: 5px;
+  left: calc(var(--dot) / 2 - 1px); /* centres the 2px line under the dots */
   top: 8px;
   bottom: 8px;
   width: 2px;
@@ -352,9 +359,9 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   content: "";
   position: absolute;
   left: 0;
-  top: 7px;
-  width: 12px;
-  height: 12px;
+  top: calc((var(--role-line) - var(--dot)) / 2); /* centred on the role's first line */
+  width: var(--dot);
+  height: var(--dot);
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--accent-soft);
@@ -424,27 +431,34 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   border: 1px solid var(--rule);
 }
 
-/* Projects: one line each, columns aligned */
-.projects { display: flex; flex-direction: column; gap: 10px; }
-.project {
+/* Projects: small tiles; the GitHub link fills the grid's last cell */
+.projects {
   display: grid;
-  grid-template-columns: 170px minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 0 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
 }
-.project__name {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--navy);
+.project {
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--navy-tint-2);
+}
+.project__head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.project__name { font-size: 15px; font-weight: 600; color: var(--navy); }
+.project__name a { display: inline-flex; align-items: center; gap: 4px; }
+.project__name svg { width: 13px; height: 13px; color: var(--muted); }
+.project .stack { margin-top: 0; gap: 4px; }
+.project__desc { margin-top: 4px; font-size: 13px; color: var(--ink-2); }
+.project--more {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  border-style: dashed;
+  background: transparent;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
 }
-.project__name svg { width: 13px; height: 13px; color: var(--muted); }
-.project__desc { font-size: 13.5px; color: var(--ink-2); }
-.project .stack { margin-top: 0; }
-.project .stack__label { display: none; }
-.projects__more { display: inline-block; margin-top: 12px; font-weight: 600; color: var(--navy); }
 
 /* Education & certificates: compact rows */
 .rows { display: flex; flex-direction: column; gap: 14px; }
@@ -760,9 +774,9 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .section { gap: 3.2mm; }
   .section__heading { font-size: 11.5pt; padding-bottom: 1.6mm; break-after: avoid; }
   .summary { font-size: 9.4pt; line-height: 1.5; max-width: none; }
-  .timeline { gap: 4.5mm; }
+  .timeline { gap: 4.5mm; --dot: 3mm; --role-line: calc(10.4pt * 1.2); }
   .entry { padding-left: 6.5mm; break-inside: avoid; }
-  .entry::before { width: 3mm; height: 3mm; top: 1.4mm; box-shadow: 0 0 0 2px var(--paper); }
+  .entry::before { box-shadow: 0 0 0 2px var(--paper); }
   .entry__role { font-size: 10.4pt; }
   .entry__org { font-size: 9pt; margin-top: 0; }
   .entry__date { font-size: 8pt; padding: 0.4mm 2.2mm; }
@@ -776,12 +790,12 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .stack__label { font-size: 7pt; }
 
   /* Projects: one compact row each instead of the 2-column card grid */
-  .projects { gap: 1.8mm; }
-  .project { grid-template-columns: 46mm minmax(0, 1fr) auto; gap: 0 3mm; break-inside: avoid; }
+  .projects { grid-template-columns: 1fr 1fr; gap: 2mm; }
+  .project { padding: 1.6mm 2.6mm; border-radius: 2mm; break-inside: avoid; }
   .project__name { font-size: 9.2pt; }
   .project__name svg { width: 10px; height: 10px; }
-  .project__desc { font-size: 8.6pt; }
-  .projects__more { margin-top: 2mm; font-size: 8.6pt; }
+  .project__desc { margin-top: 0.6mm; font-size: 8.6pt; }
+  .project--more { font-size: 9pt; }
 
   .rows { gap: 2.5mm; }
   .row { break-inside: avoid; }
