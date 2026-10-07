@@ -458,7 +458,8 @@
         "hu": "A Rizikó csatáinak valószínűségi elemzése Python notebookban."
       },
       "stack": [
-        "Python"
+        "Python",
+        "Rust"
       ]
     }
   ],
