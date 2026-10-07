@@ -204,6 +204,7 @@
         "en": "Other",
         "hu": "Egyéb"
       },
+      "inline": true,
       "items": [
         "Linux",
         {
@@ -217,6 +218,8 @@
         "en": "Preferred AI",
         "hu": "Kedvelt AI"
       },
+      "inline": true,
+      "accent": true,
       "items": [
         "Claude Code"
       ]

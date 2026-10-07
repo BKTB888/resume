@@ -261,6 +261,14 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   color: var(--side-muted);
   margin-bottom: 7px;
 }
+/* Label and chips on one line; a shared label width lines the chips up */
+.skillgroup--inline { display: flex; align-items: center; gap: 8px; }
+.skillgroup--inline .skillgroup__name { flex: 0 0 6em; margin-bottom: 0; }
+.skillgroup:not(.skillgroup--inline) + .skillgroup--inline {
+  padding-top: 12px;
+  border-top: 1px solid var(--side-rule);
+}
+.skillgroup--accent .tag { border-color: var(--accent); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {
   display: inline-block;
@@ -760,6 +768,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .contact svg { width: 11px; height: 11px; margin-top: 2px; }
   .skillgroup + .skillgroup { margin-top: 2.2mm; }
   .skillgroup__name { font-size: 8.5pt; margin-bottom: 1.2mm; }
+  .skillgroup:not(.skillgroup--inline) + .skillgroup--inline { padding-top: 2.2mm; }
   .tags { gap: 1.2mm; }
   .tag { font-size: 8.5pt; padding: 1.2mm 2.2mm; background: color-mix(in srgb, var(--side-text) 12%, transparent); }
   .langs { font-size: 9.5pt; gap: 1.5mm; }

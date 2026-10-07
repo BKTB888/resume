@@ -121,7 +121,7 @@
 
     if (has(data.skills)) {
       const groups = data.skills.map((g) => `
-        <div class="skillgroup">
+        <div class="skillgroup${g.inline ? " skillgroup--inline" : ""}${g.accent ? " skillgroup--accent" : ""}">
           ${g.group ? `<div class="skillgroup__name">${esc(t(g.group))}</div>` : ""}
           <div class="tags">${chips(g.items, "tag")}</div>
         </div>`).join("");
