@@ -102,6 +102,10 @@
       "en": "Projects",
       "hu": "Projektek"
     },
+    "projectsMore": {
+      "en": "Please check out my GitHub for more interesting projects like these",
+      "hu": "A GitHubomon még sok másik érdekes projektet találhat"
+    },
     "education": {
       "en": "Education",
       "hu": "Tanulmányok"
@@ -109,6 +113,10 @@
     "certificates": {
       "en": "Certificates",
       "hu": "Tanúsítványok"
+    },
+    "aiPhilosophy": {
+      "en": "AI philosophy",
+      "hu": "AI-filozófia"
     },
     "interests": {
       "en": "Interests",
@@ -398,68 +406,65 @@
   ],
   "projects": [
     {
-      "name": {
-        "en": "Sudoku Solver",
-        "hu": "Sudoku megoldó"
-      },
-      "url": "https://github.com/BKTB888/SudokuSolver",
+      "name": "General MiniMax",
+      "url": "https://github.com/BKTB888/General_MiniMax",
       "description": {
-        "en": "Sudoku solver for any board size, written in C.",
-        "hu": "Tetszőleges méretű táblát kezelő Sudoku-megoldó C nyelven."
+        "en": "Generic alpha-beta search",
+        "hu": "Általános alfa-béta keresés"
       },
       "stack": [
-        "C"
+        "Rust"
       ]
     },
     {
       "name": {
-        "en": "Path Finder",
-        "hu": "Útvonalkereső"
+        "en": "Risk",
+        "hu": "Rizikó"
       },
+      "url": "https://colab.research.google.com/drive/1nlyGHUVxSv23_C1Nc-zb1LoYxlsrkrMb?usp=sharing",
+      "description": {
+        "en": "Exact battle probabilities",
+        "hu": "A csaták pontos valószínűségei"
+      },
+      "stack": [
+        "Python",
+        "Rust"
+      ]
+    },
+    {
+      "name": "Path Finder",
       "url": "https://github.com/BKTB888/PathFinder",
       "description": {
-        "en": "Path-finding application written in C++.",
-        "hu": "C++ nyelven írt útvonalkereső alkalmazás."
+        "en": "Path-finding application",
+        "hu": "Útvonalkereső alkalmazás"
       },
       "stack": [
         "C++"
       ]
     },
     {
+      "name": {
+        "en": "Sudoku Solver",
+        "hu": "Sudoku-megoldó"
+      },
+      "url": "https://github.com/BKTB888/SudokuSolver",
+      "description": {
+        "en": "Any board size",
+        "hu": "Tetszőleges táblaméret"
+      },
+      "stack": [
+        "C"
+      ]
+    },
+    {
       "name": "LifeSim",
       "url": "https://github.com/BKTB888/LifeSim",
       "description": {
-        "en": "Life simulator game written in Java.",
-        "hu": "Java nyelven írt életszimulátor játék."
+        "en": "Life simulator game",
+        "hu": "Életszimulátor játék"
       },
       "stack": [
         "Java"
-      ]
-    },
-    {
-      "name": "General MiniMax",
-      "url": "https://github.com/BKTB888/General_MiniMax",
-      "description": {
-        "en": "Alpha-beta search implemented generically for any game, written in Rust.",
-        "hu": "Bármely játékra általánosan megírt alfa-béta keresés Rust nyelven."
-      },
-      "stack": [
-        "Rust"
-      ]
-    },
-    {
-      "name": {
-        "en": "Risk (board game) probabilities",
-        "hu": "Rizikó (társas) valószínűségek"
-      },
-      "url": "https://colab.research.google.com/drive/1nlyGHUVxSv23_C1Nc-zb1LoYxlsrkrMb?usp=sharing",
-      "description": {
-        "en": "Probability analysis of the Risk board game's battles in a Python notebook.",
-        "hu": "A Rizikó csatáinak valószínűségi elemzése Python notebookban."
-      },
-      "stack": [
-        "Python",
-        "Rust"
       ]
     }
   ],
@@ -479,6 +484,16 @@
     }
   ],
   "certificates": [],
+  "aiPhilosophy": {
+    "en": [
+      "For every task, I first decide which parts need my direct supervision and where the AI can work on its own. Where the core design is at stake, I use it as a pair programmer, not an autopilot: it builds top-down, one small, reviewable step at a time, and I reject and redirect it often, because I want to understand every line that ships.",
+      "I give it free rein where correctness is easy to check, or where the work scales horizontally, so a mistake can only break one small piece, not the whole framework. There it can try many solutions and keep the best one. For example, it tried out micro-optimisations on small, performance-critical code much faster than I could have. I mainly use Claude Code, but I have tried many other AI tools as well."
+    ],
+    "hu": [
+      "Minden feladatnál először felmérem, mely részek igénylik a közvetlen felügyeletemet, és hol dolgozhat az AI önállóan. Ahol a kód alapvető felépítése a tét, párprogramozóként használom, nem robotpilótaként: felülről lefelé, kis, átnézhető lépésenként építtetem vele a kódot, és gyakran elutasítom a javaslatait vagy más irányba terelem, mert minden sort érteni akarok, ami bekerül a kódba.",
+      "Szabad kezet adok neki, ahol a kód helyessége könnyen ellenőrizhető, vagy ahol a munka horizontálisan skálázódik, mert ott egy hiba csak egy kis részt ronthat el, nem az egész keretrendszert. Ilyenkor sok megoldást kipróbálhat, és a legjobbat tartom meg. Például kis, teljesítménykritikus kódrészeken sokkal gyorsabban próbált ki mikrooptimalizációkat, mint én tudtam volna. Elsősorban a Claude Code-ot használom, de sok más AI-eszközt is kipróbáltam már."
+    ]
+  },
   "interests": {
     "en": [
       "Sports",

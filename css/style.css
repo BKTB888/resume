@@ -333,6 +333,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   color: var(--ink-2);
   max-width: 62ch;
 }
+.summary + .summary { margin-top: 0.6em; }
 
 /* Timeline entries */
 .timeline { display: flex; flex-direction: column; gap: 28px; position: relative; }
@@ -423,20 +424,13 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   border: 1px solid var(--rule);
 }
 
-/* Projects grid */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
+/* Projects: one line each, columns aligned */
+.projects { display: flex; flex-direction: column; gap: 10px; }
 .project {
-  padding: 18px 18px 16px;
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  background: var(--navy-tint-2);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0 14px;
 }
 .project__name {
   font-size: 15px;
@@ -448,7 +442,9 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
 }
 .project__name svg { width: 13px; height: 13px; color: var(--muted); }
 .project__desc { font-size: 13.5px; color: var(--ink-2); }
-.project .stack { margin-top: 2px; }
+.project .stack { margin-top: 0; }
+.project .stack__label { display: none; }
+.projects__more { display: inline-block; margin-top: 12px; font-weight: 600; color: var(--navy); }
 
 /* Education & certificates: compact rows */
 .rows { display: flex; flex-direction: column; gap: 14px; }
@@ -780,23 +776,12 @@ h1, h2, h3 { margin: 0; font-family: var(--font-head); line-height: 1.2; }
   .stack__label { font-size: 7pt; }
 
   /* Projects: one compact row each instead of the 2-column card grid */
-  .projects { display: flex; flex-direction: column; gap: 1.8mm; }
-  .project {
-    display: grid;
-    grid-template-columns: 46mm minmax(0, 1fr) auto;
-    align-items: baseline;
-    gap: 0 3mm;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    break-inside: avoid;
-  }
+  .projects { gap: 1.8mm; }
+  .project { grid-template-columns: 46mm minmax(0, 1fr) auto; gap: 0 3mm; break-inside: avoid; }
   .project__name { font-size: 9.2pt; }
   .project__name svg { width: 10px; height: 10px; }
   .project__desc { font-size: 8.6pt; }
-  .project .stack { margin-top: 0; }
-  .project .stack__label { display: none; }
+  .projects__more { margin-top: 2mm; font-size: 8.6pt; }
 
   .rows { gap: 2.5mm; }
   .row { break-inside: avoid; }

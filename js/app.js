@@ -206,18 +206,22 @@
     }
 
     if (has(data.projects)) {
-      const cards = data.projects.map((p) => {
+      const rows = data.projects.map((p) => {
         const name = p.url
           ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(t(p.name))}${ICONS.link}</a>`
-          : esc(p.name);
+          : esc(t(p.name));
         return `
           <article class="project">
             <h3 class="project__name">${name}</h3>
-            <p class="project__desc">${esc(t(p.description))}</p>
+            <span class="project__desc">${esc(t(p.description))}</span>
             ${stackRow(p.stack)}
           </article>`;
       }).join("");
-      parts.push(section("projects", `<div class="projects">${cards}</div>`));
+      const github = data.basics?.links?.find((l) => l.label === "GitHub");
+      const more = github
+        ? `<a class="projects__more" href="${esc(github.url)}" target="_blank" rel="noopener">${esc(ui("projectsMore"))} →</a>`
+        : "";
+      parts.push(section("projects", `<div class="projects">${rows}</div>${more}`));
     }
 
     if (has(data.certificates)) {
@@ -233,6 +237,12 @@
         </div>`;
       }).join("");
       parts.push(section("certificates", `<div class="rows">${rows}</div>`));
+    }
+
+    const aiPhilosophy = t(data.aiPhilosophy);
+    if (has(aiPhilosophy)) {
+      const paras = aiPhilosophy.map((p) => `<p class="summary">${esc(p)}</p>`).join("");
+      parts.push(section("aiPhilosophy", paras));
     }
 
     document.getElementById("main").innerHTML = parts.join("");
