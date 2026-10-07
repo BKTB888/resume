@@ -205,13 +205,20 @@
         "hu": "Egyéb"
       },
       "items": [
-        "Git",
-        "GitHub",
-        "Claude Code",
+        "Linux",
         {
-          "en": "Strong mathematics",
-          "hu": "Erős matematikai tudás"
+          "en": "Math",
+          "hu": "Matek"
         }
+      ]
+    },
+    {
+      "group": {
+        "en": "Preferred AI",
+        "hu": "Kedvelt AI"
+      },
+      "items": [
+        "Claude Code"
       ]
     }
   ],
